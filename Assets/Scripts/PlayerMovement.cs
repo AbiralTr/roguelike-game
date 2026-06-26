@@ -4,9 +4,15 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 7f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private float moveX;
+    private bool isGrounded;
+    private bool jumpPressed;
 
     void Awake()
     {
@@ -18,19 +24,26 @@ public class PlayerMovement : MonoBehaviour
         var keyboard = Keyboard.current;
         if (keyboard == null) return;
 
-        float x = 0f;
-        float y = 0f;
+        moveX = 0f;
+        if (keyboard.aKey.isPressed) moveX -= 1f;
+        if (keyboard.dKey.isPressed) moveX += 1f;
 
-        if (keyboard.aKey.isPressed) x -= 1f;
-        if (keyboard.dKey.isPressed) x += 1f;
-        if (keyboard.wKey.isPressed) y += 1f;
-        if (keyboard.sKey.isPressed) y -= 1f;
+        if (keyboard.wKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame)
+        {
+            jumpPressed = true;
+        }
 
-        moveInput = new Vector2(x, y).normalized;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = moveInput * moveSpeed;
+        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
+
+        if (jumpPressed && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+        jumpPressed = false;
     }
 }
