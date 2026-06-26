@@ -3,7 +3,7 @@
 ## About
 
 A passion project game developed between three friends
-Griffin Mccallum-Fite, Riley Sackett, Abiral Tuladhar
+Griffin McCallum-Fite, Riley Sackett, Abiral Tuladhar
 
 
 - **Genre:** 2D pixel-art platformer / roguelike / metroidvania
