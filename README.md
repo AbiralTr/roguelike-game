@@ -1,16 +1,5 @@
 # roguelike-game
 
-## Table of Contents
-
-- [About](#about)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Workflow & Contribution Guidelines](#workflow--contribution-guidelines)
-- [Roadmap](#roadmap)
-- [Team](#team)
-- [License](#license)
-
 ## About
 
 A passion project game developed between three friends
