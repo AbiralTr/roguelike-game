@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private float moveX;
+    public float MoveX => moveX;
     private bool isGrounded;
     private bool jumpPressed;
 
