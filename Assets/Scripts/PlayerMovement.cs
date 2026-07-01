@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashDuration = 0.15f;
     [SerializeField] private float dashCooldown = 0.5f;
 
+    public bool IsGrounded => isGrounded;
     private Rigidbody2D rb;
     private float moveX;
     public float MoveX => moveX;
