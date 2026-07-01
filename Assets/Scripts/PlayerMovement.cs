@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash")]
     [SerializeField] private float dashSpeed = 20f;
     [SerializeField] private float dashDuration = 0.15f;
-    [SerializeField] private float dashCooldown = 0.5f;
+    [SerializeField] private float dashCooldown = 2f;
 
     public bool IsGrounded => isGrounded;
     private Rigidbody2D rb;
@@ -44,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveX != 0f) lastMoveX = moveX;
 
-        if (keyboard.wKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame)
+        if (keyboard.wKey.wasPressedThisFrame)
         {
             jumpPressed = true;
         }
 
-        if (keyboard.fKey.wasPressedThisFrame && dashCooldownTimer <= 0f && !isDashing)
+        if (keyboard.spaceKey.wasPressedThisFrame && dashCooldownTimer <= 0f && !isDashing)
         {
             dashPressed = true;
         }
