@@ -1,0 +1,1541 @@
+{
+  "short_side_len": 32,
+  "tiles": [
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_0_0_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_0_0_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_0_1_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_0_1_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_1_0_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_1_0_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_1_1_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_0_1_1_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_0_0_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_0_0_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_0_1_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_0_1_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_1_0_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_1_0_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_1_1_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_0_1_1_1_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_0_0_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_0_0_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_0_1_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_0_1_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_1_0_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_1_0_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_1_1_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_0_1_1_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_0_0_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_0_0_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_0_1_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_0_1_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_1_0_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_1_0_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_1_1_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_0_1_1_1_1_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_0_0_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_0_0_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_0_1_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_0_1_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_1_0_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_1_0_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_1_1_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_0_1_1_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_0_0_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_0_0_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_0_1_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_0_1_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_1_0_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_1_0_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_1_1_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_0_1_1_1_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_0_0_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_0_0_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_0_1_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_0_1_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_1_0_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_1_0_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_1_1_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_0_1_1_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_0_0_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_0_0_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_0_1_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_0_1_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_1_0_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_1_0_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_1_1_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "h",
+      "file": "h_1_1_1_1_1_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_0_0_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_0_0_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_0_1_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_0_1_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_1_0_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_1_0_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_1_1_0.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_0_1_1_1.png",
+      "edges": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_0_0_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_0_0_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_0_1_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_0_1_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_1_0_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_1_0_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_1_1_0.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_0_1_1_1_1.png",
+      "edges": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_0_0_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_0_0_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_0_1_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_0_1_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_1_0_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_1_0_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_1_1_0.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_0_1_1_1.png",
+      "edges": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_0_0_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_0_0_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_0_1_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_0_1_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_1_0_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_1_0_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_1_1_0.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_0_1_1_1_1_1.png",
+      "edges": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_0_0_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_0_0_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_0_1_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_0_1_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_1_0_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_1_0_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_1_1_0.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_0_1_1_1.png",
+      "edges": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_0_0_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_0_0_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_0_1_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_0_1_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_1_0_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_1_0_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_1_1_0.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_0_1_1_1_1.png",
+      "edges": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_0_0_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_0_0_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_0_1_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_0_1_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_1_0_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_1_0_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_1_1_0.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_0_1_1_1.png",
+      "edges": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_0_0_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_0_0_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_0_1_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_0_1_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_1_0_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_1_0_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_1_1_0.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "orientation": "v",
+      "file": "v_1_1_1_1_1_1.png",
+      "edges": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}
