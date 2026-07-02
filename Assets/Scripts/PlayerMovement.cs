@@ -2,17 +2,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 7f;
+{   
+    [SerializeField] private PlayerData playerData;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Dash")]
-    [SerializeField] private float dashSpeed = 20f;
-    [SerializeField] private float dashDuration = 0.15f;
-    [SerializeField] private float dashCooldown = 2f;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashCooldown;
 
     public bool IsGrounded => isGrounded;
     private Rigidbody2D rb;
@@ -31,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerData.Initialize();
+        moveSpeed = playerData.moveSpeed;
+        jumpForce = playerData.jumpForce;
+        dashSpeed = playerData.dashSpeed;
+        dashDuration = playerData.dashDuration;
+        dashCooldown = playerData.dashCooldown;
     }
 
     void Update()
