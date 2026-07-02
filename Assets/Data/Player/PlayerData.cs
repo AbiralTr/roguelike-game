@@ -5,7 +5,7 @@ public class PlayerData : ScriptableObject
 {
     [Header("Health")]
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth = 100;
 
     [Header("Movement")]
     public float moveSpeed = 5f;

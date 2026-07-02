@@ -61,6 +61,16 @@ public class PlayerMovement : MonoBehaviour
             dashPressed = true;
         }
 
+        if (keyboard.hKey.wasPressedThisFrame)
+        {
+            playerData.TakeDamage(10);
+        }
+
+        if (keyboard.jKey.wasPressedThisFrame)
+        {
+            playerData.Heal(10);
+        }
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         if (dashCooldownTimer > 0f) dashCooldownTimer -= Time.deltaTime;
