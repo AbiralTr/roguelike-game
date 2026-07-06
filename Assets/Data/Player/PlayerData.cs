@@ -14,6 +14,17 @@ public class PlayerData : ScriptableObject
     public float dashDuration = 0.15f;
     public float dashCooldown = 3f;
 
+    [Header("Melee Attack")]
+    public int meleeDamage = 10;
+    public float meleeRange = 0.75f;
+    public float meleeCooldown = 0.4f;
+
+    [Header("Projectile Attack")]
+    public int projectileDamage = 5;
+    public float projectileSpeed = 12f;
+    public float projectileRange = 5f;
+    public float projectileCooldown = 0.6f;
+
     public void Initialize()
     {
         currentHealth = maxHealth;
