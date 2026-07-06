@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyContact : MonoBehaviour
 {
-    [SerializeField] private int damage = 10;
+    [SerializeField] private EnemyData enemyData;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -11,7 +11,7 @@ public class EnemyContact : MonoBehaviour
             PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                health.TakeDamage(damage);
+                health.TakeDamage(enemyData.contactDamage);
             }
         }
     }

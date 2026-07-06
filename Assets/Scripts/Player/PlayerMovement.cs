@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float moveX;
     public float MoveX => moveX;
+    public float FacingDirection => lastMoveX;
     private bool isGrounded;
     private bool jumpPressed;
 
