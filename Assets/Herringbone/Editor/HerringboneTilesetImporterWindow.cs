@@ -106,7 +106,13 @@ namespace Herringbone.EditorTools
                 Debug.LogWarning($"short_side_len ({manifest.short_side_len}) is not evenly divisible by " +
                                   $"Unity Cell Pixel Size ({cellPixelSize}) — tiles may be sliced unevenly.");
 
-            int cellsPerSide = Mathf.Max(1, manifest.short_side_len / cellPixelSize);
+            if (manifest.short_side_len < cellPixelSize || manifest.short_side_len % cellPixelSize != 0)
+                throw new ArgumentException(
+                    $"tileset.json's short_side_len ({manifest.short_side_len}) must be a positive multiple of " +
+                    $"Unity Cell Pixel Size ({cellPixelSize}). Regenerate the Python tileset with a matching " +
+                    $"--side-len (e.g. {cellPixelSize} or {cellPixelSize * 4}), or change Unity Cell Pixel Size to match.");
+
+            int cellsPerSide = manifest.short_side_len / cellPixelSize;
 
             // Create (or replace) the output asset up front so we can attach
             // generated Sprite/Tile sub-assets to it as we go.
