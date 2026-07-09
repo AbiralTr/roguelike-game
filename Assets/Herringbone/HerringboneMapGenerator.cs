@@ -1,13 +1,30 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Herringbone
 {
     /// <summary>
-    /// Generates a herringbone-wang-tile map from a HerringboneTilesetAsset
-    /// and stamps it onto a target Tilemap. Attach to any GameObject, assign
-    /// a Tilemap and a tileset, then call Generate() (or right-click the
+    /// One guaranteed room in the floor layout. Position is fixed by the
+    /// designer; content is either fixed (pool of 1 — e.g. your boss room,
+    /// same every run) or randomly chosen from a pool (gauntlet/miniboss
+    /// variety).
+    /// </summary>
+    [Serializable]
+    public class RoomSlot
+    {
+        public string label = "room";
+        public int x;
+        public int y;
+        public List<RoomAsset> pool = new List<RoomAsset>();
+    }
+
+    /// <summary>
+    /// Generates a herringbone-wang-tile map from a HerringboneTilesetAsset,
+    /// with optional pre-placed rooms (boss rooms, gauntlets, etc.), and
+    /// stamps it onto a target Tilemap. Attach to any GameObject, assign a
+    /// Tilemap and a tileset, then call Generate() (or right-click the
     /// component in the Inspector and choose "Generate" via the context menu).
     /// </summary>
     public class HerringboneMapGenerator : MonoBehaviour
@@ -21,6 +38,9 @@ namespace Herringbone
         [Header("Map size (in Unity grid cells)")]
         public int widthCells = 64;
         public int heightCells = 32;
+
+        [Header("Guaranteed rooms (optional)")]
+        public List<RoomSlot> roomSlots = new List<RoomSlot>();
 
         [Header("Randomization")]
         public bool useRandomSeed = true;
@@ -42,10 +62,35 @@ namespace Herringbone
             int actualSeed = useRandomSeed ? Environment.TickCount : seed;
             var rng = new System.Random(actualSeed);
 
+            // Resolve each room slot to a concrete room BEFORE the stochastic
+            // fill runs, using the same rng instance, so results stay
+            // reproducible for a given seed.
+            var prePlaced = new List<PrePlacedRegion<TileBase>>();
+            foreach (var slot in roomSlots)
+            {
+                if (slot.pool == null || slot.pool.Count == 0)
+                {
+                    Debug.LogWarning($"HerringboneMapGenerator: room slot '{slot.label}' has an empty pool, skipping.");
+                    continue;
+                }
+                var chosen = slot.pool[rng.Next(slot.pool.Count)];
+                if (chosen == null)
+                {
+                    Debug.LogWarning($"HerringboneMapGenerator: room slot '{slot.label}' picked a null entry, skipping.");
+                    continue;
+                }
+                prePlaced.Add(new PrePlacedRegion<TileBase>
+                {
+                    X = slot.x,
+                    Y = slot.y,
+                    Content = chosen.ToContentGrid()
+                });
+            }
+
             TileBase[,] grid;
             try
             {
-                grid = HerringboneWangGenerator.GenerateMap(ts, widthCells, heightCells, rng);
+                grid = HerringboneWangGenerator.GenerateMap(ts, widthCells, heightCells, rng, prePlaced: prePlaced);
             }
             catch (InvalidOperationException e)
             {
@@ -65,7 +110,8 @@ namespace Herringbone
                 }
             }
 
-            Debug.Log($"HerringboneMapGenerator: generated {widthCells}x{heightCells} map, seed {actualSeed}.");
+            Debug.Log($"HerringboneMapGenerator: generated {widthCells}x{heightCells} map, " +
+                      $"{prePlaced.Count} room(s) placed, seed {actualSeed}.");
         }
     }
 }

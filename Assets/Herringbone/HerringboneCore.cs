@@ -37,6 +37,22 @@ namespace Herringbone
         public readonly List<HerringboneTile<T>> VTiles = new List<HerringboneTile<T>>();
     }
 
+    /// <summary>
+    /// A block of content to stamp directly into the map before the stochastic
+    /// wang-tile sweep runs — for boss rooms, gauntlet rooms, or any other
+    /// guaranteed set-piece. The sweep will skip every cell this occupies,
+    /// so the room's art is never overwritten. Cells the sweep would have
+    /// placed a normal brick into right at the room's boundary still get
+    /// chosen normally (their far side just won't be color-matched against
+    /// the room, since the room doesn't participate in edge bookkeeping) —
+    /// so give room art its own border/wall margin for a clean transition.
+    /// </summary>
+    public class PrePlacedRegion<T>
+    {
+        public int X, Y;
+        public T[,] Content; // [width, height]
+    }
+
     public static class HerringboneWangGenerator
     {
         /// <summary>
@@ -44,7 +60,7 @@ namespace Herringbone
         /// tile placement. Throws InvalidOperationException if the tileset
         /// can't satisfy some slot's edge constraints (incomplete stochastic set).
         /// </summary>
-        public static T[,] GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default)
+        public static T[,] GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default, List<PrePlacedRegion<T>> prePlaced = null)
         {
             if (ts.ShortSideLen <= 0) throw new ArgumentException("ShortSideLen must be > 0");
             int sideLen = ts.ShortSideLen;
@@ -65,6 +81,29 @@ namespace Herringbone
             for (int x = 0; x < width; x++)
                 for (int y = 0; y < height; y++)
                     output[x, y] = emptyValue;
+
+            bool[,] occupied = new bool[width, height];
+
+            if (prePlaced != null)
+            {
+                foreach (var region in prePlaced)
+                {
+                    int rw = region.Content.GetLength(0);
+                    int rh = region.Content.GetLength(1);
+                    for (int cy = 0; cy < rh; cy++)
+                    {
+                        int oy = region.Y + cy;
+                        if (oy < 0 || oy >= height) continue;
+                        for (int cx = 0; cx < rw; cx++)
+                        {
+                            int ox = region.X + cx;
+                            if (ox < 0 || ox >= width) continue;
+                            output[ox, oy] = region.Content[cx, cy];
+                            occupied[ox, oy] = true;
+                        }
+                    }
+                }
+            }
 
             int ypos = -sideLen;
             for (int j = -1; ypos < height; j++)
@@ -89,7 +128,7 @@ namespace Herringbone
                                 "No horizontal tile satisfies the required edge constraints. " +
                                 "Add more tiles to cover this edge-color combination.");
 
-                        DrawTile(output, xpos, ypos, t.Content, sideLen * 2, sideLen, width, height);
+                        DrawTile(output, occupied, xpos, ypos, t.Content, sideLen * 2, sideLen, width, height);
                     }
 
                     xpos += sideLen * 2;
@@ -108,7 +147,7 @@ namespace Herringbone
                                 "No vertical tile satisfies the required edge constraints. " +
                                 "Add more tiles to cover this edge-color combination.");
 
-                        DrawTile(output, xpos, ypos, t.Content, sideLen, sideLen * 2, width, height);
+                        DrawTile(output, occupied, xpos, ypos, t.Content, sideLen, sideLen * 2, width, height);
                     }
                 }
                 ypos += sideLen;
@@ -146,7 +185,7 @@ namespace Herringbone
             return null;
         }
 
-        private static void DrawTile<T>(T[,] output, int x, int y, T[,] content, int w, int h, int xmax, int ymax)
+        private static void DrawTile<T>(T[,] output, bool[,] occupied, int x, int y, T[,] content, int w, int h, int xmax, int ymax)
         {
             for (int cy = 0; cy < h; cy++)
             {
@@ -156,6 +195,7 @@ namespace Herringbone
                 {
                     int ox = x + cx;
                     if (ox < 0 || ox >= xmax) continue;
+                    if (occupied[ox, oy]) continue;
                     output[ox, oy] = content[cx, cy];
                 }
             }
