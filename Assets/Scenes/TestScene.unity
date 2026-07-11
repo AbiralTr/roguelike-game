@@ -21840,6 +21840,8 @@ GameObject:
   - component: {fileID: 428146177}
   - component: {fileID: 428146179}
   - component: {fileID: 428146178}
+  - component: {fileID: 428146180}
+  - component: {fileID: 428146181}
   m_Layer: 7
   m_Name: Backline Daemon
   m_TagString: Enemy
@@ -22035,6 +22037,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   enemyData: {fileID: 11400000, guid: 3b02dc9a0dc9311b8a454ef709199f0c, type: 2}
+--- !u!114 &428146180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428146172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30005a1b2f382d347b8d0cd1d7b0455b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  enemyData: {fileID: 11400000, guid: 3b02dc9a0dc9311b8a454ef709199f0c, type: 2}
+--- !u!114 &428146181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428146172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3823316d6453a4caeece46bca02470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVisuals
+  enemyAI: {fileID: 428146180}
+  spriteRenderer: {fileID: 428146175}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -22291,6 +22320,8 @@ GameObject:
   - component: {fileID: 729525484}
   - component: {fileID: 729525485}
   - component: {fileID: 729525486}
+  - component: {fileID: 729525487}
+  - component: {fileID: 729525488}
   m_Layer: 7
   m_Name: Daemon
   m_TagString: Enemy
@@ -22486,6 +22517,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
   fillImage: {fileID: 2114902773}
   enemyHealth: {fileID: 729525485}
+--- !u!114 &729525487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729525479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30005a1b2f382d347b8d0cd1d7b0455b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  enemyData: {fileID: 11400000, guid: 81c490c55c30908c4923e88d13a69a35, type: 2}
+--- !u!114 &729525488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729525479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3823316d6453a4caeece46bca02470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVisuals
+  enemyAI: {fileID: 729525487}
+  spriteRenderer: {fileID: 729525482}
 --- !u!1 &824903178
 GameObject:
   m_ObjectHideFlags: 0
@@ -22730,6 +22788,8 @@ GameObject:
   - component: {fileID: 1084912387}
   - component: {fileID: 1084912389}
   - component: {fileID: 1084912388}
+  - component: {fileID: 1084912390}
+  - component: {fileID: 1084912391}
   m_Layer: 7
   m_Name: Frontline Daemon
   m_TagString: Enemy
@@ -22925,6 +22985,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   enemyData: {fileID: 11400000, guid: 02bfc000f4eda1b7eb4985a3f2133a02, type: 2}
+--- !u!114 &1084912390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084912382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30005a1b2f382d347b8d0cd1d7b0455b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  enemyData: {fileID: 11400000, guid: 02bfc000f4eda1b7eb4985a3f2133a02, type: 2}
+--- !u!114 &1084912391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084912382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3823316d6453a4caeece46bca02470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVisuals
+  enemyAI: {fileID: 1084912390}
+  spriteRenderer: {fileID: 1084912385}
 --- !u!1 &1132600493
 GameObject:
   m_ObjectHideFlags: 0
@@ -23007,7 +23094,7 @@ Transform:
   m_GameObject: {fileID: 1163516814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 7.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
