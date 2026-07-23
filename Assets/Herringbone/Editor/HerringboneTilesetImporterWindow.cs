@@ -177,6 +177,21 @@ namespace Herringbone.EditorTools
             int cols = texW / cellPixelSize;
             int rows = texH / cellPixelSize;
 
+            // Load the raw PNG bytes independently of the AssetDatabase import
+            // pipeline, purely to inspect per-cell alpha — this works
+            // regardless of the texture's "Read/Write Enabled" import setting.
+            string fullDiskPath = Path.GetFullPath(texPath);
+            var rawTex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            rawTex.LoadImage(File.ReadAllBytes(fullDiskPath));
+
+            bool IsCellFullyTransparent(int cellX0, int cellY0, int size)
+            {
+                var pixels = rawTex.GetPixels(cellX0, cellY0, size, size);
+                foreach (var p in pixels)
+                    if (p.a > 0.01f) return false;
+                return true;
+            }
+
             var spriteSheet = new List<SpriteMetaData>();
             for (int r = 0; r < rows; r++)
             {
@@ -185,6 +200,12 @@ namespace Herringbone.EditorTools
                     // Unity sprite rects are bottom-left origin; r=0 here means
                     // the TOP row of the source image.
                     float rectY = texH - (r + 1) * cellPixelSize;
+
+                    // Fully-open cells (no rock at all) don't need a sprite —
+                    // they'll be left as null tiles (real empty space) below.
+                    if (IsCellFullyTransparent(c * cellPixelSize, (int)rectY, cellPixelSize))
+                        continue;
+
                     spriteSheet.Add(new SpriteMetaData
                     {
                         name = $"{entry.file}_{r}_{c}",
@@ -194,6 +215,7 @@ namespace Herringbone.EditorTools
                     });
                 }
             }
+            UnityEngine.Object.DestroyImmediate(rawTex);
 #pragma warning disable 0618 // spritesheet API is marked obsolete in newer Unity but still functional
             importer.spritesheet = spriteSheet.ToArray();
 #pragma warning restore 0618
@@ -219,9 +241,16 @@ namespace Herringbone.EditorTools
                 for (int c = 0; c < cols; c++)
                 {
                     string spriteName = $"{entry.file}_{r}_{c}";
+                    int cellY = FlipRowOrder ? (rows - 1 - r) : r;
+
                     if (!sprites.TryGetValue(spriteName, out var sprite))
                     {
-                        Debug.LogWarning($"Missing sliced sprite '{spriteName}' for {entry.file}");
+                        // No sprite for this cell — either it was intentionally
+                        // fully transparent (open space, leave null), or
+                        // something actually went wrong slicing it. Only warn
+                        // in the latter case would require re-checking alpha
+                        // here too; keeping this simple, a missing sprite
+                        // always just means "no tile" for this cell.
                         continue;
                     }
 
@@ -230,7 +259,6 @@ namespace Herringbone.EditorTools
                     tile.name = spriteName + "_tile";
                     AssetDatabase.AddObjectToAsset(tile, containerPath);
 
-                    int cellY = FlipRowOrder ? (rows - 1 - r) : r;
                     brick.flatTiles[cellY * cols + c] = tile;
                 }
             }

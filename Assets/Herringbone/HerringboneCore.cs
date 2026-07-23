@@ -53,6 +53,16 @@ namespace Herringbone
         public T[,] Content; // [width, height]
     }
 
+    /// <summary>Bundles the generated content grid with a mask of which cells
+    /// were claimed by pre-placed rooms (as opposed to the stochastic sweep) —
+    /// useful for anything downstream that needs to avoid room interiors,
+    /// like an ambient loot-scatter pass.</summary>
+    public class GenerationResult<T>
+    {
+        public T[,] Grid;
+        public bool[,] OccupiedByPrePlaced;
+    }
+
     public static class HerringboneWangGenerator
     {
         /// <summary>
@@ -60,7 +70,7 @@ namespace Herringbone
         /// tile placement. Throws InvalidOperationException if the tileset
         /// can't satisfy some slot's edge constraints (incomplete stochastic set).
         /// </summary>
-        public static T[,] GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default, List<PrePlacedRegion<T>> prePlaced = null)
+        public static GenerationResult<T> GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default, List<PrePlacedRegion<T>> prePlaced = null)
         {
             if (ts.ShortSideLen <= 0) throw new ArgumentException("ShortSideLen must be > 0");
             int sideLen = ts.ShortSideLen;
@@ -153,7 +163,7 @@ namespace Herringbone
                 ypos += sideLen;
             }
 
-            return output;
+            return new GenerationResult<T> { Grid = output, OccupiedByPrePlaced = occupied };
         }
 
         private static HerringboneTile<T> ChooseTile<T>(
