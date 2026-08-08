@@ -3,31 +3,39 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Game/Player Data")]
 public class PlayerData : ScriptableObject
 {
-    [Header("Health")]
-    public int maxHealth = 100;
-    public int currentHealth = 100;
+    [Header("Base Health")]
+    public int baseMaxHealth = 100;
 
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
     public float jumpForce = 5f;
     public float dashSpeed = 20f;
     public float dashDuration = 0.15f;
     public float dashCooldown = 3f;
 
-    [Header("Melee Attack")]
-    public int meleeDamage = 10;
+    [Header("Base Melee Attack")]
+    public int baseMeleeDamage = 10;
     public float meleeRange = 0.75f;
     public float meleeCooldown = 0.4f;
 
-    [Header("Projectile Attack")]
-    public int projectileDamage = 5;
+    [Header("Base Projectile Attack")]
+    public int baseProjectileDamage = 5;
     public float projectileSpeed = 12f;
     public float projectileRange = 5f;
     public float projectileCooldown = 0.6f;
+    [System.NonSerialized] public int maxHealth;
+    [System.NonSerialized] public int currentHealth;
+    [System.NonSerialized] public float moveSpeed;
+    [System.NonSerialized] public int meleeDamage;
+    [System.NonSerialized] public int projectileDamage;
 
     public void Initialize()
     {
-        currentHealth = maxHealth;
+        maxHealth = baseMaxHealth;
+        currentHealth = baseMaxHealth;
+        moveSpeed = baseMoveSpeed;
+        meleeDamage = baseMeleeDamage;
+        projectileDamage = baseProjectileDamage;
     }
 
     public void TakeDamage(int amount)
@@ -41,4 +49,22 @@ public class PlayerData : ScriptableObject
     }
 
     public bool IsDead => currentHealth <= 0;
+
+    public void ApplyStatBoost(StatType type, float amount)
+    {
+        switch (type)
+        {
+            case StatType.Health:
+                maxHealth += Mathf.RoundToInt(amount);
+                currentHealth += Mathf.RoundToInt(amount);
+                break;
+            case StatType.Damage:
+                meleeDamage += Mathf.RoundToInt(amount);
+                projectileDamage += Mathf.RoundToInt(amount);
+                break;
+            case StatType.Speed:
+                moveSpeed += amount;
+                break;
+        }
+    }
 }
