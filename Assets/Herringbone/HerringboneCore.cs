@@ -71,6 +71,7 @@ namespace Herringbone
         /// can't satisfy some slot's edge constraints (incomplete stochastic set).
         /// </summary>
         public static GenerationResult<T> GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default, List<PrePlacedRegion<T>> prePlaced = null)
+        public static T[,] GenerateMap<T>(HerringboneTileSet<T> ts, int width, int height, Random rng, T emptyValue = default, List<PrePlacedRegion<T>> prePlaced = null)
         {
             if (ts.ShortSideLen <= 0) throw new ArgumentException("ShortSideLen must be > 0");
             int sideLen = ts.ShortSideLen;
@@ -164,6 +165,7 @@ namespace Herringbone
             }
 
             return new GenerationResult<T> { Grid = output, OccupiedByPrePlaced = occupied };
+            return output;
         }
 
         private static HerringboneTile<T> ChooseTile<T>(
@@ -211,4 +213,5 @@ namespace Herringbone
             }
         }
     }
+}
 }

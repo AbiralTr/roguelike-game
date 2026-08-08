@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float flashInterval = 0.1f;
 
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private DeathScreenManager deathScreenManager;
     private int playerLayer;
 
     private float iframeTimer;
@@ -48,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        // get off my dick twin
-        Debug.Log("You Died");
+        Physics2D.IgnoreLayerCollision(playerLayer, LayerMask.NameToLayer("Enemy"), false);
+        deathScreenManager.Show();
     }
 }

@@ -8,4 +8,8 @@ public class EnemyData : ScriptableObject
 
     [Header("Combat")]
     public int contactDamage = 10;
+
+    [Header("Movement")]
+    public float moveSpeed = 2f;
+    public float detectionRange = 5f;
 }

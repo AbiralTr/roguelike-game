@@ -27,6 +27,10 @@ namespace Herringbone
     /// an ambient loot-scatter pass across the regular generated terrain.
     /// Attach to any GameObject, assign a Tilemap and a tileset, then call
     /// Generate() (or right-click the component and choose "Generate").
+    /// with optional pre-placed rooms (boss rooms, gauntlets, etc.), and
+    /// stamps it onto a target Tilemap. Attach to any GameObject, assign a
+    /// Tilemap and a tileset, then call Generate() (or right-click the
+    /// component in the Inspector and choose "Generate" via the context menu).
     /// </summary>
     public class HerringboneMapGenerator : MonoBehaviour
     {
@@ -86,6 +90,8 @@ namespace Herringbone
             var prePlaced = new List<PrePlacedRegion<TileBase>>();
             var roomMarkers = new List<RoomMarker>();
 
+            // reproducible for a given seed.
+            var prePlaced = new List<PrePlacedRegion<TileBase>>();
             foreach (var slot in roomSlots)
             {
                 if (slot.pool == null || slot.pool.Count == 0)
@@ -123,6 +129,12 @@ namespace Herringbone
             {
                 result = HerringboneWangGenerator.GenerateMap(ts, widthCells, heightCells, rng, prePlaced: prePlaced);
             }
+
+            TileBase[,] grid;
+            try
+            {
+                grid = HerringboneWangGenerator.GenerateMap(ts, widthCells, heightCells, rng, prePlaced: prePlaced);
+            }
             catch (InvalidOperationException e)
             {
                 Debug.LogError("HerringboneMapGenerator: generation failed — " + e.Message +
@@ -136,6 +148,7 @@ namespace Herringbone
                 for (int y = 0; y < heightCells; y++)
                 {
                     var tile = result.Grid[x, y];
+                    var tile = grid[x, y];
                     if (tile != null)
                         targetTilemap.SetTile(new Vector3Int(x, y, 0), tile);
                 }
@@ -239,6 +252,8 @@ namespace Herringbone
                 if (Application.isPlaying) Destroy(child);
                 else DestroyImmediate(child);
             }
+            Debug.Log($"HerringboneMapGenerator: generated {widthCells}x{heightCells} map, " +
+                      $"{prePlaced.Count} room(s) placed, seed {actualSeed}.");
         }
     }
 }

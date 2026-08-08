@@ -251,6 +251,9 @@ namespace Herringbone.EditorTools
                         // in the latter case would require re-checking alpha
                         // here too; keeping this simple, a missing sprite
                         // always just means "no tile" for this cell.
+                    if (!sprites.TryGetValue(spriteName, out var sprite))
+                    {
+                        Debug.LogWarning($"Missing sliced sprite '{spriteName}' for {entry.file}");
                         continue;
                     }
 
@@ -259,6 +262,7 @@ namespace Herringbone.EditorTools
                     tile.name = spriteName + "_tile";
                     AssetDatabase.AddObjectToAsset(tile, containerPath);
 
+                    int cellY = FlipRowOrder ? (rows - 1 - r) : r;
                     brick.flatTiles[cellY * cols + c] = tile;
                 }
             }
