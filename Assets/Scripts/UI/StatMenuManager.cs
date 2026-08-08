@@ -6,6 +6,7 @@ public class StatMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject statMenuUI;
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private GameStateManager gameStateManager;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private TMP_Text speedText;
@@ -19,9 +20,12 @@ public class StatMenuManager : MonoBehaviour
 
         if (keyboard.tabKey.wasPressedThisFrame)
         {
-            isOpen = !isOpen;
-            statMenuUI.SetActive(isOpen);
-            Time.timeScale = isOpen ? 0f : 1f;
+            bool accepted = isOpen ? gameStateManager.RequestCloseStatMenu() : gameStateManager.RequestOpenStatMenu();
+            if (accepted)
+            {
+                isOpen = !isOpen;
+                statMenuUI.SetActive(isOpen);
+            }
         }
 
         if (!isOpen) return;

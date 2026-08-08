@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameStateManager gameStateManager;
 
     private bool isPaused;
 
@@ -21,15 +22,15 @@ public class PauseManager : MonoBehaviour
 
     private void Pause()
     {
+        if (!gameStateManager.RequestPause()) return;
         isPaused = true;
-        Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
     }
 
     private void Resume()
     {
+        if (!gameStateManager.RequestResume()) return;
         isPaused = false;
-        Time.timeScale = 1f;
         pauseMenuUI.SetActive(false);
     }
 }

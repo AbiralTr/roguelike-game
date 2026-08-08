@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class DeathScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject deathScreenUI;
+    [SerializeField] private GameStateManager gameStateManager;
 
     public void Show()
     {
-        Time.timeScale = 0f;
+        gameStateManager.Die();
         deathScreenUI.SetActive(true);
     }
 

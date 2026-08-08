@@ -3,16 +3,17 @@ using UnityEngine;
 public class StartMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject startMenuUI;
+    [SerializeField] private GameStateManager gameStateManager;
 
     void Awake()
     {
-        Time.timeScale = 0f;
+        gameStateManager.ShowMainMenu();
         startMenuUI.SetActive(true);
     }
 
     public void StartGame()
     {
-        Time.timeScale = 1f;
+        gameStateManager.StartGame();
         startMenuUI.SetActive(false);
     }
 
