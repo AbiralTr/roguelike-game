@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {   
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.1f;
@@ -34,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerData.Initialize();
-        moveSpeed = playerData.moveSpeed;
         jumpForce = playerData.jumpForce;
         dashSpeed = playerData.dashSpeed;
         dashDuration = playerData.dashDuration;
@@ -96,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveX * playerData.moveSpeed, rb.linearVelocity.y);
 
         if (jumpPressed && isGrounded)
         {
