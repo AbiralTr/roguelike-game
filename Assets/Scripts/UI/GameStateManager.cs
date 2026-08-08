@@ -8,6 +8,7 @@ public class GameStateManager : MonoBehaviour
         Playing,
         Paused,
         StatMenu,
+        ChoiceMenu,
         Dead
     }
 
@@ -52,6 +53,22 @@ public class GameStateManager : MonoBehaviour
     public bool RequestCloseStatMenu()
     {
         if (Current != State.StatMenu) return false;
+        Current = State.Playing;
+        Time.timeScale = 1f;
+        return true;
+    }
+
+    public bool RequestOpenChoiceMenu()
+    {
+        if (Current != State.Playing) return false;
+        Current = State.ChoiceMenu;
+        Time.timeScale = 0f;
+        return true;
+    }
+
+    public bool RequestCloseChoiceMenu()
+    {
+        if (Current != State.ChoiceMenu) return false;
         Current = State.Playing;
         Time.timeScale = 1f;
         return true;
