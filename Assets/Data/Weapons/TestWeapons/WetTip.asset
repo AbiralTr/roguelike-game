@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff01e63cfe6634c4a96defe67f0d8ac1, type: 3}
+  m_Name: WetTip
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponPartData
+  partName: Wet Tip
+  slot: 0
+  statContribution:
+    damage: 100
+    critChance: 0
+    attackSpeedBonus: 0
+  passive: {fileID: 11400000, guid: d80877df74909d844be9500920b850a4, type: 2}

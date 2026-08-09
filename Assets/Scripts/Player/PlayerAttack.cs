@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private WeaponData equippedWeapon;
 
     [Header("Melee Visual")]
     [SerializeField] private GameObject meleeVisual;
@@ -43,8 +44,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (mouse.leftButton.wasPressedThisFrame && meleeCooldownTimer <= 0f)
         {
-            MeleeAttack();
-            meleeCooldownTimer = playerData.meleeCooldown;
+            WeaponStats stats = equippedWeapon != null ? equippedWeapon.GetAggregatedStats() : new WeaponStats();
+            MeleeAttack(stats);
+            meleeCooldownTimer = playerData.meleeCooldown / (1f + stats.attackSpeedBonus);
         }
 
         if (mouse.rightButton.wasPressedThisFrame && projectileCooldownTimer <= 0f)
@@ -54,15 +56,26 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void MeleeAttack()
+    private void MeleeAttack(WeaponStats weaponStats)
     {
+        int damage = playerData.meleeDamage + weaponStats.damage;
+        if (Random.value < weaponStats.critChance) damage *= 2;
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, playerData.meleeRange, enemyLayer);
         foreach (Collider2D hit in hits)
         {
             EnemyHealth health = hit.GetComponent<EnemyHealth>();
             if (health != null)
             {
-                health.TakeDamage(playerData.meleeDamage);
+                health.TakeDamage(damage);
+
+                if (equippedWeapon != null)
+                {
+                    foreach (WeaponPassiveEffect passive in equippedWeapon.GetPassives())
+                    {
+                        passive.OnHit(gameObject, hit.gameObject);
+                    }
+                }
             }
         }
 
