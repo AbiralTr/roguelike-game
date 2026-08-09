@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 dashDirection;
     private float lastMoveX = 1f;
 
+    private bool isKnockedBack;
+    private float knockbackTimer;
+    private Vector2 knockbackVelocity;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -94,6 +98,17 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if (isKnockedBack)
+        {
+            rb.linearVelocity = knockbackVelocity;
+            knockbackTimer -= Time.fixedDeltaTime;
+            if (knockbackTimer <= 0f)
+            {
+                isKnockedBack = false;
+            }
+            return;
+        }
+
         rb.linearVelocity = new Vector2(moveX * playerData.moveSpeed, rb.linearVelocity.y);
 
         if (jumpPressed && isGrounded)
@@ -109,5 +124,12 @@ public class PlayerMovement : MonoBehaviour
         dashTimer = dashDuration;
         dashCooldownTimer = dashCooldown;
         dashDirection = new Vector2(lastMoveX, 0f).normalized;
+    }
+
+    public void ApplyKnockback(Vector2 direction, float force, float duration)
+    {
+        isKnockedBack = true;
+        knockbackTimer = duration;
+        knockbackVelocity = direction.normalized * force;
     }
 }
