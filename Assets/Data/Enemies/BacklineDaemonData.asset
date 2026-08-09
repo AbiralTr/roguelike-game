@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   maxHealth: 20
   contactDamage: 10
+  attackType: 1
+  attackDamage: 10
+  attackRange: 4
+  attackCooldown: 1.5
+  projectileSpeed: 8
+  projectileRange: 6
+  moveSpeed: 2
+  detectionRange: 5

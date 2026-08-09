@@ -11,7 +11,7 @@ public class EnemyContact : MonoBehaviour
             PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                health.TakeDamage(enemyData.contactDamage);
+                health.TakeDamage(enemyData.contactDamage, transform.position);
             }
         }
     }
