@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public string weaponName;
+    public Sprite icon;
     public WeaponPartData offensePart;
     public WeaponPartData defensePart;
     public WeaponPartData movementPart;

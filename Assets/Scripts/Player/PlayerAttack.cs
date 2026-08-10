@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private WeaponData equippedWeapon;
+    [SerializeField] private SpriteRenderer weaponSpriteRenderer;
+    [SerializeField] private GameObject weaponPickupPrefab;
 
     [Header("Melee Visual")]
     [SerializeField] private GameObject meleeVisual;
@@ -29,13 +31,30 @@ public class PlayerAttack : MonoBehaviour
             meleeVisualAnimator = meleeVisual.GetComponent<Animator>();
             meleeVisualSpriteRenderer = meleeVisual.GetComponent<SpriteRenderer>();
         }
+        if (weaponSpriteRenderer != null) weaponSpriteRenderer.sprite = equippedWeapon != null ? equippedWeapon.icon : null;
     }
+
+    public string EquippedWeaponName => equippedWeapon != null ? equippedWeapon.weaponName : "None";
+
+    public void Equip(WeaponData newWeapon, Vector3 dropPosition)
+    {
+        if (equippedWeapon != null && weaponPickupPrefab != null)
+        {
+            GameObject dropped = Instantiate(weaponPickupPrefab, dropPosition, Quaternion.identity);
+            dropped.GetComponent<WeaponPickup>().Init(equippedWeapon);
+        }
+
+        equippedWeapon = newWeapon;
+        if (weaponSpriteRenderer != null) weaponSpriteRenderer.sprite = newWeapon != null ? newWeapon.icon : null;
+    }
+
 
     void Update()
     {
         var pos = attackPoint.localPosition;
         pos.x = attackPointBaseX * Mathf.Sign(playerMovement.FacingDirection);
         attackPoint.localPosition = pos;
+        if (weaponSpriteRenderer != null) weaponSpriteRenderer.flipX = playerMovement.FacingDirection < 0f;
 
         if (meleeCooldownTimer > 0f) meleeCooldownTimer -= Time.deltaTime;
         if (projectileCooldownTimer > 0f) projectileCooldownTimer -= Time.deltaTime;

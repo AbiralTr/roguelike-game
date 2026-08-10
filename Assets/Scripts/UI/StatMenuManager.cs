@@ -6,10 +6,12 @@ public class StatMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject statMenuUI;
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private GameStateManager gameStateManager;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private TMP_Text speedText;
+    [SerializeField] private TMP_Text weaponText;
 
     private bool isOpen;
 
@@ -33,5 +35,6 @@ public class StatMenuManager : MonoBehaviour
         healthText.text = $"Health: {playerData.currentHealth} / {playerData.maxHealth}";
         damageText.text = $"Melee Damage: {playerData.meleeDamage}\nProjectile Damage: {playerData.projectileDamage}";
         speedText.text = $"Speed: {playerData.moveSpeed:0.0}";
+        weaponText.text = $"Weapon: {playerAttack.EquippedWeaponName}";
     }
 }
