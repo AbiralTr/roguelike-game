@@ -25,10 +25,19 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI.SetActive(true);
     }
 
-    private void Resume()
+    public void Resume()
     {
         if (!gameStateManager.RequestResume()) return;
         isPaused = false;
         pauseMenuUI.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

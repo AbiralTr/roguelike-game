@@ -6,6 +6,12 @@ public class PlayerVisuals : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private bool facingRight = true;
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -19,6 +25,8 @@ public class PlayerVisuals : MonoBehaviour
         {
             Flip(false);
         }
+
+        if (animator != null) animator.SetBool("IsWalking", moveX != 0f);
     }
 
     private void Flip(bool faceRight)
