@@ -18,10 +18,17 @@ public class PlayerAttack : MonoBehaviour
     private float meleeCooldownTimer;
     private float projectileCooldownTimer;
     private float meleeVisualTimer;
+    private Animator meleeVisualAnimator;
+    private SpriteRenderer meleeVisualSpriteRenderer;
 
     void Awake()
     {
         attackPointBaseX = Mathf.Abs(attackPoint.localPosition.x);
+        if (meleeVisual != null)
+        {
+            meleeVisualAnimator = meleeVisual.GetComponent<Animator>();
+            meleeVisualSpriteRenderer = meleeVisual.GetComponent<SpriteRenderer>();
+        }
     }
 
     void Update()
@@ -81,8 +88,17 @@ public class PlayerAttack : MonoBehaviour
 
         if (meleeVisual != null)
         {
+            float facing = Mathf.Sign(playerMovement.FacingDirection);
+
+            var visualPos = meleeVisual.transform.localPosition;
+            visualPos.x = attackPointBaseX * facing;
+            meleeVisual.transform.localPosition = visualPos;
+
+            if (meleeVisualSpriteRenderer != null) meleeVisualSpriteRenderer.flipX = facing < 0f;
+
             meleeVisual.SetActive(true);
             meleeVisualTimer = meleeVisualDuration;
+            if (meleeVisualAnimator != null) meleeVisualAnimator.Play(0, 0, 0f);
         }
     }
 
