@@ -22529,6 +22529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 1243706537}
+  inputActionsHub: {fileID: 1022293825}
   smoothSpeed: 8
   offset: {x: 0, y: 1, z: -10}
   lookDownOffset: -2
@@ -22568,6 +22569,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: b4470f0a55d922341b99f0ede33189b1, type: 2}
   playerAttack: {fileID: 0}
   gameStateManager: {fileID: 1101084984}
+  inputActionsHub: {fileID: 1022293825}
   healthText: {fileID: 474741561}
   damageText: {fileID: 1079397506}
   speedText: {fileID: 2112914948}
@@ -23298,6 +23300,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884271780}
   m_CullTransparentMesh: 1
+--- !u!1 &1022293824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022293826}
+  - component: {fileID: 1022293825}
+  m_Layer: 0
+  m_Name: InputActionsHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1022293825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022293824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb1f2dba4676e44ea12b31a9248f9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputActionsHub
+--- !u!4 &1022293826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022293824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4162, y: 0.70205, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1024253784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23871,6 +23917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerData: {fileID: 11400000, guid: b4470f0a55d922341b99f0ede33189b1, type: 2}
+  inputActionsHub: {fileID: 1022293825}
   jumpForce: 5
   groundCheck: {fileID: 1791157656}
   groundCheckRadius: 0.1
@@ -24080,6 +24127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   playerData: {fileID: 11400000, guid: b4470f0a55d922341b99f0ede33189b1, type: 2}
   playerMovement: {fileID: 1243706534}
+  inputActionsHub: {fileID: 1022293825}
   attackPoint: {fileID: 84866739}
   enemyLayer:
     serializedVersion: 2
@@ -26163,6 +26211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pauseMenuUI: {fileID: 394969968}
   gameStateManager: {fileID: 1101084984}
+  inputActionsHub: {fileID: 1022293825}
 --- !u!4 &1899441137
 Transform:
   m_ObjectHideFlags: 0
@@ -27131,3 +27180,4 @@ SceneRoots:
   - {fileID: 1024253784}
   - {fileID: 1571073883}
   - {fileID: 2953857772525690165}
+  - {fileID: 1022293826}

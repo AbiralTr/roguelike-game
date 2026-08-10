@@ -5,6 +5,7 @@ public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private InputActionsHub inputActionsHub;
 
     private PlayerAttack playerInRange;
 
@@ -13,9 +14,10 @@ public class WeaponPickup : MonoBehaviour
         ApplySprite();
     }
 
-    public void Init(WeaponData data)
+    public void Init(WeaponData data, InputActionsHub hub)
     {
         weaponData = data;
+        inputActionsHub = hub;
         ApplySprite();
     }
 
@@ -40,10 +42,7 @@ public class WeaponPickup : MonoBehaviour
     {
         if (playerInRange == null) return;
 
-        var keyboard = Keyboard.current;
-        if (keyboard == null) return;
-
-        if (keyboard.eKey.wasPressedThisFrame)
+        if (inputActionsHub.Actions.Player.Interact.WasPressedThisFrame())
         {
             playerInRange.Equip(weaponData, transform.position);
             Destroy(gameObject);

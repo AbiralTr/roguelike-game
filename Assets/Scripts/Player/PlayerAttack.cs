@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private InputActionsHub inputActionsHub;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject projectilePrefab;
@@ -41,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         if (equippedWeapon != null && weaponPickupPrefab != null)
         {
             GameObject dropped = Instantiate(weaponPickupPrefab, dropPosition, Quaternion.identity);
-            dropped.GetComponent<WeaponPickup>().Init(equippedWeapon);
+            dropped.GetComponent<WeaponPickup>().Init(equippedWeapon, inputActionsHub);
         }
 
         equippedWeapon = newWeapon;
@@ -65,17 +66,16 @@ public class PlayerAttack : MonoBehaviour
             if (meleeVisualTimer <= 0f) meleeVisual.SetActive(false);
         }
 
-        var mouse = Mouse.current;
-        if (mouse == null) return;
+        var player = inputActionsHub.Actions.Player;
 
-        if (mouse.leftButton.wasPressedThisFrame && meleeCooldownTimer <= 0f)
+        if (player.MeleeAttack.WasPressedThisFrame() && meleeCooldownTimer <= 0f)
         {
             WeaponStats stats = equippedWeapon != null ? equippedWeapon.GetAggregatedStats() : new WeaponStats();
             MeleeAttack(stats);
             meleeCooldownTimer = playerData.meleeCooldown / (1f + stats.attackSpeedBonus);
         }
 
-        if (mouse.rightButton.wasPressedThisFrame && projectileCooldownTimer <= 0f)
+        if (player.RangedAttack.WasPressedThisFrame() && projectileCooldownTimer <= 0f)
         {
             ProjectileAttack();
             projectileCooldownTimer = playerData.projectileCooldown;

@@ -5,15 +5,13 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameStateManager gameStateManager;
+    [SerializeField] private InputActionsHub inputActionsHub;
 
     private bool isPaused;
 
     void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null) return;
-
-        if (keyboard.escapeKey.wasPressedThisFrame)
+        if (inputActionsHub.Actions.Player.Pause.WasPressedThisFrame())
         {
             if (isPaused) Resume();
             else Pause();
