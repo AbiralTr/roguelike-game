@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private InputActionsHub inputActionsHub;
     [SerializeField] private float smoothSpeed = 5f;
     [SerializeField] private Vector3 offset = new Vector3(0, 1.5f, -10f);
 
@@ -27,10 +28,9 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null) return;
 
-        var keyboard = Keyboard.current;
         float targetYOffset = 0f;
 
-        if (keyboard != null && keyboard.sKey.isPressed)
+        if (inputActionsHub.Actions.Player.LookDown.IsPressed())
         {
             targetYOffset = lookDownOffset;
         }

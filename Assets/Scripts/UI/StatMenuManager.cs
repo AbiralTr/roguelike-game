@@ -8,6 +8,7 @@ public class StatMenuManager : MonoBehaviour
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private GameStateManager gameStateManager;
+    [SerializeField] private InputActionsHub inputActionsHub;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private TMP_Text speedText;
@@ -17,10 +18,7 @@ public class StatMenuManager : MonoBehaviour
 
     void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null) return;
-
-        if (keyboard.tabKey.wasPressedThisFrame)
+        if (inputActionsHub.Actions.Player.ToggleStatMenu.WasPressedThisFrame())
         {
             bool accepted = isOpen ? gameStateManager.RequestCloseStatMenu() : gameStateManager.RequestOpenStatMenu();
             if (accepted)

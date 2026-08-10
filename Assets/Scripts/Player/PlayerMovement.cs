@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {   
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private InputActionsHub inputActionsHub;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.1f;
@@ -45,33 +46,36 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null) return;
+        var player = inputActionsHub.Actions.Player;
 
-        moveX = 0f;
-        if (keyboard.aKey.isPressed) moveX -= 1f;
-        if (keyboard.dKey.isPressed) moveX += 1f;
+        moveX = player.Move.ReadValue<float>();
 
         if (moveX != 0f) lastMoveX = moveX;
 
-        if (keyboard.wKey.wasPressedThisFrame)
+        if (player.Jump.WasPressedThisFrame())
         {
             jumpPressed = true;
         }
 
-        if (keyboard.spaceKey.wasPressedThisFrame && dashCooldownTimer <= 0f && !isDashing)
+        if (player.Dash.WasPressedThisFrame() && dashCooldownTimer <= 0f && !isDashing)
         {
             dashPressed = true;
         }
 
-        if (keyboard.hKey.wasPressedThisFrame)
+        // Debug-only shortcuts, deliberately left on raw keyboard polling rather
+        // than formal Input Actions — meant to be stripped before a real build.
+        var keyboard = Keyboard.current;
+        if (keyboard != null)
         {
-            playerData.TakeDamage(10);
-        }
+            if (keyboard.hKey.wasPressedThisFrame)
+            {
+                playerData.TakeDamage(10);
+            }
 
-        if (keyboard.jKey.wasPressedThisFrame)
-        {
-            playerData.Heal(10);
+            if (keyboard.jKey.wasPressedThisFrame)
+            {
+                playerData.Heal(10);
+            }
         }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
