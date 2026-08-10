@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WeaponTest
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: WeaponTest
+  icon: {fileID: 2093507336284767125, guid: 39f3a2bdb33274146beea0256171ba08, type: 3}
   offensePart: {fileID: 11400000, guid: a37b1d11c54353a488b6e5ef5263b718, type: 2}
   defensePart: {fileID: 11400000, guid: 3ecbedd0b13147b43835fb3131799037, type: 2}
   movementPart: {fileID: 11400000, guid: cfea5805aa825784a8d57164b74e7ae2, type: 2}
