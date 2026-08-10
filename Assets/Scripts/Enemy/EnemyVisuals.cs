@@ -9,13 +9,13 @@ public class EnemyVisuals : MonoBehaviour
 
     void Update()
     {
-        float moveX = enemyAI.MoveX;
+        float facing = enemyAI.FacingDirection;
 
-        if (moveX > 0f && !facingRight)
+        if (facing > 0f && !facingRight)
         {
             Flip(true);
         }
-        else if (moveX < 0f && facingRight)
+        else if (facing < 0f && facingRight)
         {
             Flip(false);
         }
