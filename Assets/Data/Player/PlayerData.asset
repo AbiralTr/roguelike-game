@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ea7b8714f53b14590c98669ff49af2, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  maxHealth: 100
-  currentHealth: 40
-  moveSpeed: 5
+  baseMaxHealth: 100
+  baseMoveSpeed: 5
   jumpForce: 5
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 3
+  baseMeleeDamage: 10
+  meleeRange: 0.75
+  meleeCooldown: 0.4
+  baseProjectileDamage: 5
+  projectileSpeed: 12
+  projectileRange: 5
+  projectileCooldown: 0.6

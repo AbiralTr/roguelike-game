@@ -22566,10 +22566,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatMenuManager
   statMenuUI: {fileID: 1270409181}
   playerData: {fileID: 11400000, guid: b4470f0a55d922341b99f0ede33189b1, type: 2}
+  playerAttack: {fileID: 0}
   gameStateManager: {fileID: 1101084984}
   healthText: {fileID: 474741561}
   damageText: {fileID: 1079397506}
   speedText: {fileID: 2112914948}
+  weaponText: {fileID: 0}
 --- !u!4 &549385051
 Transform:
   m_ObjectHideFlags: 0
@@ -24084,6 +24086,8 @@ MonoBehaviour:
     m_Bits: 128
   projectilePrefab: {fileID: 7991061974637018685, guid: 4ec1b7a92e987083bb73328e7e0642eb, type: 3}
   equippedWeapon: {fileID: 0}
+  weaponSpriteRenderer: {fileID: 0}
+  weaponPickupPrefab: {fileID: 0}
   meleeVisual: {fileID: 162237964}
   meleeVisualDuration: 0.6
 --- !u!1 &1270409181
