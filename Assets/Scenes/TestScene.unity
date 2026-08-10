@@ -147,8 +147,7 @@ Transform:
   m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 162237965}
+  m_Children: []
   m_Father: {fileID: 1243706537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87262631
@@ -21492,6 +21491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162237965}
   - component: {fileID: 162237966}
+  - component: {fileID: 162237967}
   m_Layer: 0
   m_Name: MeleeVisual
   m_TagString: Untagged
@@ -21507,12 +21507,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162237964}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 84866739}
+  m_Father: {fileID: 1243706537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &162237966
 SpriteRenderer:
@@ -21561,10 +21561,10 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.24442047, g: 0.24442047, b: 0.24442047, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -21573,6 +21573,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &162237967
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162237964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a38a3c83cc1f6774c910a77aa3a0f503, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &210305369
 GameObject:
   m_ObjectHideFlags: 0
@@ -23957,6 +23979,7 @@ Transform:
   m_Children:
   - {fileID: 1791157656}
   - {fileID: 84866739}
+  - {fileID: 162237965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1243706538
@@ -24060,8 +24083,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   projectilePrefab: {fileID: 7991061974637018685, guid: 4ec1b7a92e987083bb73328e7e0642eb, type: 3}
+  equippedWeapon: {fileID: 0}
   meleeVisual: {fileID: 162237964}
-  meleeVisualDuration: 0.1
+  meleeVisualDuration: 0.6
 --- !u!1 &1270409181
 GameObject:
   m_ObjectHideFlags: 0
@@ -24725,11 +24749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5335316806967056909, guid: 5efcacf35820ca146ad8061d1289c41e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.798
+      value: 2.792
       objectReference: {fileID: 0}
     - target: {fileID: 5335316806967056909, guid: 5efcacf35820ca146ad8061d1289c41e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.009
+      value: -0.044
       objectReference: {fileID: 0}
     - target: {fileID: 5335316806967056909, guid: 5efcacf35820ca146ad8061d1289c41e, type: 3}
       propertyPath: m_LocalPosition.z
