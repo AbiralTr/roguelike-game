@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
 
     public float FacingDirection => facingDirection;
+    public bool IsMoving => rb.linearVelocity.x != 0f;
 
     private Rigidbody2D rb;
     private Transform player;

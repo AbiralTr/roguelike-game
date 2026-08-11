@@ -6,6 +6,12 @@ public class EnemyVisuals : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private bool facingRight = true;
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -19,6 +25,8 @@ public class EnemyVisuals : MonoBehaviour
         {
             Flip(false);
         }
+
+        if (animator != null) animator.SetBool("IsMoving", enemyAI.IsMoving);
     }
 
     private void Flip(bool faceRight)
