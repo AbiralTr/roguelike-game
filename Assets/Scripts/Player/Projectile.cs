@@ -15,6 +15,9 @@ public class Projectile : MonoBehaviour
         this.speed = speed;
         this.maxDistance = maxDistance;
         startPosition = transform.position;
+
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null) spriteRenderer.flipX = this.direction.x < 0f;
     }
 
     void Update()
