@@ -13,3 +13,5 @@ enum AttackType { MELEE, RANGED }
 @export var projectile_range: float = 300.0
 @export var move_speed: float = 120.0
 @export var detection_range: float = 320.0
+@export var currency_drop: int = 0
+@export var score_value: int = 0
