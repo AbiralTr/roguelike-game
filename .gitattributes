@@ -1,0 +1,24 @@
+# Normalize line endings for text-based project files so diffs stay clean
+# across the team's Mac and Windows machines.
+* text=auto eol=lf
+
+*.gd     text eol=lf
+*.tscn   text eol=lf
+*.tres   text eol=lf
+*.godot  text eol=lf
+*.import text eol=lf
+*.cfg    text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+
+# Binary assets: no eol conversion, no text diffs. Small pixel-art sprites are
+# committed as normal blobs, not LFS. If genuinely large binaries (long audio
+# tracks, video, etc.) get added later, track those specific paths with
+# Git LFS individually instead of blanket-LFS-ing a whole extension.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.wav  binary
+*.ogg  binary
+*.ttf  binary
+*.otf  binary
