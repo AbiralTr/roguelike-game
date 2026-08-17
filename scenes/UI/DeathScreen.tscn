@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/death_screen.gd" id="1_screen"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+script = ExtResource("1_screen")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.15, 0, 0, 0.75)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Options" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Center/Options"]
+horizontal_alignment = 1
+text = "You Died"
+
+[node name="RestartButton" type="Button" parent="Center/Options"]
+custom_minimum_size = Vector2(160, 50)
+text = "Restart"

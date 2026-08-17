@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stat_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/status-window.png" id="2_art"]
+
+[node name="StatMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -245.0
+offset_right = 350.0
+offset_bottom = 245.0
+texture = ExtResource("2_art")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="InvArea" type="Control" parent="Panel"]
+anchor_left = 0.11
+anchor_top = 0.193
+anchor_right = 0.54
+anchor_bottom = 0.85
+
+[node name="WeaponLabel" type="Label" parent="Panel/InvArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Weapon: None"
+
+[node name="StatsArea" type="Control" parent="Panel"]
+anchor_left = 0.58
+anchor_top = 0.193
+anchor_right = 0.88
+anchor_bottom = 0.6
+
+[node name="StatsBox" type="VBoxContainer" parent="Panel/StatsArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 6
+
+[node name="HealthLabel" type="Label" parent="Panel/StatsArea/StatsBox"]
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Health: 0 / 0"
+
+[node name="DamageLabel" type="Label" parent="Panel/StatsArea/StatsBox"]
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Melee Damage: 0"
+
+[node name="SpeedLabel" type="Label" parent="Panel/StatsArea/StatsBox"]
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Speed: 0.0"

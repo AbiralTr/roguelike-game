@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-0.png" id="1_s0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-1.png" id="2_s1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-2.png" id="3_s2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-3.png" id="4_s3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-4.png" id="5_s4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/attack/slash-5.png" id="6_s5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s5")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 10.0
+}]
