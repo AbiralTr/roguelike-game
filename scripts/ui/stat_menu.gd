@@ -8,6 +8,9 @@ var player: Player = null
 @onready var damage_label: Label = $Panel/StatsArea/StatsBox/DamageLabel
 @onready var speed_label: Label = $Panel/StatsArea/StatsBox/SpeedLabel
 @onready var weapon_label: Label = $Panel/InvArea/WeaponLabel
+@onready var currency_label: Label = $Panel/TerminalArea/TerminalBox/CurrencyLabel
+@onready var score_label: Label = $Panel/TerminalArea/TerminalBox/ScoreLabel
+@onready var time_label: Label = $Panel/TerminalArea/TerminalBox/TimeLabel
 
 func _ready() -> void:
 	visible = false
@@ -31,3 +34,8 @@ func _process(_delta: float) -> void:
 	damage_label.text = "Melee Damage: %s\nProjectile Damage: %s" % [pd.melee_damage, pd.projectile_damage]
 	speed_label.text = "Speed: %.1f" % pd.move_speed
 	weapon_label.text = "Weapon: %s" % (player.equipped_weapon.weapon_name if player.equipped_weapon != null else "None")
+
+	currency_label.text = "Nanites: %d" % GameState.run_currency
+	score_label.text = "Score: %d" % GameState.run_score
+	var total_seconds: int = int(GameState.run_elapsed_time)
+	time_label.text = "Time: %02d:%02d" % [total_seconds / 60, total_seconds % 60]

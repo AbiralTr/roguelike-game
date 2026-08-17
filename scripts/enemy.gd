@@ -79,4 +79,13 @@ func take_damage(amount: float) -> void:
 		return
 	current_health -= amount
 	if current_health <= 0.0:
-		queue_free()
+		_die()
+
+func _die() -> void:
+	for i in range(enemy_data.currency_drop):
+		var nanite: NanitePickup = preload("res://scenes/NanitePickup.tscn").instantiate()
+		get_tree().current_scene.add_child(nanite)
+		nanite.global_position = global_position
+	if enemy_data.score_value > 0:
+		GameState.add_score(enemy_data.score_value)
+	queue_free()
