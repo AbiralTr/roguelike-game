@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/pause-menu.png" id="2_art"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -210.0
+offset_right = 300.0
+offset_bottom = 210.0
+texture = ExtResource("2_art")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="TitleArea" type="Control" parent="Panel"]
+anchor_left = 0.11
+anchor_top = 0.157
+anchor_right = 0.48
+anchor_bottom = 0.864
+
+[node name="Title" type="Label" parent="Panel/TitleArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text = "Paused"
+
+[node name="ButtonArea" type="Control" parent="Panel"]
+anchor_left = 0.55
+anchor_top = 0.229
+anchor_right = 0.87
+anchor_bottom = 0.786
+
+[node name="Options" type="VBoxContainer" parent="Panel/ButtonArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 14
+
+[node name="ResumeButton" type="Button" parent="Panel/ButtonArea/Options"]
+theme_override_font_sizes/font_size = 20
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="Panel/ButtonArea/Options"]
+theme_override_font_sizes/font_size = 20
+text = "Quit"

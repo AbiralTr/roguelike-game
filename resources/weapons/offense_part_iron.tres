@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponPartData" format=3 uid="uid://bdwbsnx1ruv3s"]
+
+[ext_resource type="Script" uid="uid://b7c1c16alg53w" path="res://scripts/weapons/weapon_part_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://0ekljhj1exkx" path="res://scripts/weapons/weapon_stats.gd" id="2"]
+[ext_resource type="Resource" path="res://resources/weapons/bonus_damage_passive.tres" id="3"]
+
+[sub_resource type="Resource" id="Resource_stats"]
+script = ExtResource("2")
+damage = 5
+crit_chance = 0.1
+
+[resource]
+script = ExtResource("1")
+part_name = "Iron Blade"
+stat_contribution = SubResource("Resource_stats")
+passive = ExtResource("3")

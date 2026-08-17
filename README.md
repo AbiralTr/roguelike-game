@@ -9,49 +9,56 @@ A passion project game developed between three friends — Griffin McCallum-Fite
 
 | Layer | Choice |
 |---|---|
-| Engine | Unity (LTS) |
-| Language | C# |
-| Render Pipeline | Universal Render Pipeline (URP) — 2D Renderer |
+| Engine | Godot 4.7 |
+| Language | GDScript |
 | Pixel art tooling | Aseprite |
-| Version control | Git + GitHub, Git LFS for binaries |
-
-**Unity version:** `6000.3.18f1 LTS`
+| Version control | Git + GitHub |
 
 ## Getting Started
 
 ### Prerequisites
 
-- Unity Hub + Unity installed
+- Godot 4.7 (or later 4.x)
 - Git
-- [Git LFS](https://git-lfs.com/) (`git lfs install`, once per machine)
 
 ### Setup
 
 ```bash
 git clone https://github.com/AbiralTr/roguelike-game.git
 cd roguelike-game
-git lfs pull
 ```
 
-Open the project folder from Unity Hub (Add/Open → select the cloned `roguelike-game` folder).
+Open Godot, choose **Import**, and select the cloned `roguelike-game` folder (`project.godot` lives at the repo root). Run the game with F5, or open `scenes/Main.tscn` and run just that scene with F6.
 
-### Unity smart-merge driver (one-time, per machine)
+## Controls
 
-Avoids broken merges when two people edit the same scene/prefab:
+| Action | Key/Button |
+|---|---|
+| Move | A / D |
+| Jump | W |
+| Dash | Space |
+| Melee attack | Left click |
+| Ranged attack | Right click |
+| Interact / pick up weapon | E |
+| Pause | Escape |
+| Stat menu | Tab |
 
-```bash
-git config merge.unityyamlmerge.name "Unity SmartMerge"
-git config merge.unityyamlmerge.driver "'<path-to-UnityYAMLMerge-binary>' merge -p %O %B %A %A"
+## Project Layout
+
 ```
-
-- Windows: `.../Editor/Data/Tools/UnityYAMLMerge.exe`
-- macOS: `.../Unity.app/Contents/Tools/UnityYAMLMerge`
+project.godot        Godot project file (repo root is the project root)
+scenes/               .tscn scenes, including scenes/UI for menus/HUD
+scripts/              game logic (.gd), scripts/ui and scripts/weapons subfolders
+resources/            .tres data assets (stats, weapons, sprite animation sets)
+assets/sprites/       game art
+tools/                standalone dev scripts (run via Godot's --script flag)
+```
 
 ## Workflow
 
 - Branch per feature off `main`, open a PR when ready
 - PRs require approval before merging
 
-## License
+## History
 
-MIT — see [LICENSE](LICENSE).
+Originally prototyped in Unity; rebuilt in Godot starting August 2026.

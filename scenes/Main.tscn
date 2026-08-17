@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://8v4dpx2p7nb3"]
+
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/Drone.tscn" id="2_drone"]
+[ext_resource type="Script" uid="uid://bluoq0s1is2wf" path="res://scripts/ground.gd" id="3_ground"]
+[ext_resource type="PackedScene" path="res://scenes/UI/HUD.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/StatPickup.tscn" id="5_pickup"]
+[ext_resource type="Resource" path="res://resources/health_pickup_data.tres" id="6_health_data"]
+[ext_resource type="Resource" path="res://resources/damage_pickup_data.tres" id="7_damage_data"]
+[ext_resource type="Resource" path="res://resources/speed_pickup_data.tres" id="8_speed_data"]
+[ext_resource type="Script" uid="uid://hvtjsi85krf" path="res://scripts/main.gd" id="9_main"]
+[ext_resource type="PackedScene" path="res://scenes/WeaponPickup.tscn" id="10_weapon_pickup"]
+[ext_resource type="Resource" path="res://resources/weapons/iron_sword.tres" id="11_iron_sword"]
+[ext_resource type="PackedScene" path="res://scenes/UI/ChoiceMenu.tscn" id="12_choice_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ChoicePickup.tscn" id="13_choice_pickup"]
+[ext_resource type="Script" uid="uid://b1xfdq8ea3dtk" path="res://scripts/stat_pickup_data.gd" id="13_nfivy"]
+[ext_resource type="PackedScene" path="res://scenes/UI/PauseMenu.tscn" id="14_pause_menu"]
+[ext_resource type="PackedScene" path="res://scenes/UI/StatMenu.tscn" id="15_stat_menu"]
+[ext_resource type="PackedScene" path="res://scenes/UI/DeathScreen.tscn" id="16_death_screen"]
+[ext_resource type="PackedScene" path="res://scenes/UI/PickupPopup.tscn" id="17_pickup_popup"]
+[ext_resource type="PackedScene" path="res://scenes/UI/StartMenu.tscn" id="18_start_menu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(2000, 100)
+
+[node name="Main" type="Node2D" unique_id=1185577810]
+script = ExtResource("9_main")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=294201384]
+position = Vector2(0, 350)
+collision_mask = 0
+script = ExtResource("3_ground")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1283587541]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="GroundSprite" type="Sprite2D" parent="Ground" unique_id=1471104617]
+
+[node name="Player" parent="." unique_id=679961120 instance=ExtResource("1_player")]
+position = Vector2(-200, 250)
+
+[node name="Drone" parent="." unique_id=730775316 instance=ExtResource("2_drone")]
+position = Vector2(243, 255)
+
+[node name="HUD" parent="." unique_id=113973772 instance=ExtResource("4_hud")]
+
+[node name="HealthPickup" parent="." unique_id=22513785 instance=ExtResource("5_pickup")]
+position = Vector2(-265, 157)
+data = ExtResource("6_health_data")
+
+[node name="DamagePickup" parent="." unique_id=449267393 instance=ExtResource("5_pickup")]
+position = Vector2(-332, 157)
+data = ExtResource("7_damage_data")
+
+[node name="SpeedPickup" parent="." unique_id=1247181636 instance=ExtResource("5_pickup")]
+position = Vector2(-408, 157)
+data = ExtResource("8_speed_data")
+
+[node name="IronSwordPickup" parent="." unique_id=1116106958 instance=ExtResource("10_weapon_pickup")]
+position = Vector2(-329, 276)
+weapon_data = ExtResource("11_iron_sword")
+
+[node name="ChoiceMenu" parent="." unique_id=120659971 instance=ExtResource("12_choice_menu")]
+pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource("7_damage_data"), ExtResource("8_speed_data")])
+
+[node name="ChoicePickup" parent="." unique_id=668355269 instance=ExtResource("13_choice_pickup")]
+position = Vector2(-477, 158)
+
+[node name="PauseMenu" parent="." unique_id=1490618882 instance=ExtResource("14_pause_menu")]
+
+[node name="StatMenu" parent="." unique_id=1065451093 instance=ExtResource("15_stat_menu")]
+
+[node name="DeathScreen" parent="." unique_id=1317161401 instance=ExtResource("16_death_screen")]
+
+[node name="PickupPopup" parent="." unique_id=977193801 instance=ExtResource("17_pickup_popup")]
+
+[node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
