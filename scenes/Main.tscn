@@ -40,6 +40,9 @@ size = Vector2(42, 124.99844)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fctbl"]
 size = Vector2(12, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_506if"]
+size = Vector2(639, 24)
+
 [node name="Main" type="Node2D" unique_id=1185577810]
 script = ExtResource("9_main")
 
@@ -83,7 +86,6 @@ position = Vector2(-236, 144)
 weapon_data = ExtResource("11_iron_sword")
 
 [node name="ChoiceMenu" parent="." unique_id=120659971 instance=ExtResource("12_choice_menu")]
-visible = false
 pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource("7_damage_data"), ExtResource("8_speed_data"), ExtResource("20_crit_data"), ExtResource("21_attack_speed_data"), ExtResource("22_dash_cooldown_data")])
 
 [node name="ChoicePickup" parent="." unique_id=668355269 instance=ExtResource("13_choice_pickup")]
@@ -139,3 +141,7 @@ shape = SubResource("RectangleShape2D_fctbl")
 [node name="WallRight" type="CollisionShape2D" parent="RoomTile" unique_id=334949034]
 position = Vector2(114, 277)
 shape = SubResource("RectangleShape2D_fctbl")
+
+[node name="Ceiling" type="CollisionShape2D" parent="RoomTile" unique_id=389724885]
+position = Vector2(-200.5, 48)
+shape = SubResource("RectangleShape2D_506if")
