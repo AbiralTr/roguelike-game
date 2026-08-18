@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ChoicePickup.tscn" id="13_choice_pickup"]
 [ext_resource type="Script" uid="uid://b1xfdq8ea3dtk" path="res://scripts/stat_pickup_data.gd" id="13_nfivy"]
 [ext_resource type="PackedScene" path="res://scenes/UI/PauseMenu.tscn" id="14_pause_menu"]
-[ext_resource type="PackedScene" path="res://scenes/UI/StatMenu.tscn" id="15_stat_menu"]
+[ext_resource type="PackedScene" uid="uid://dqgob41m4fa55" path="res://scenes/UI/StatMenu.tscn" id="15_stat_menu"]
 [ext_resource type="PackedScene" path="res://scenes/UI/DeathScreen.tscn" id="16_death_screen"]
 [ext_resource type="PackedScene" path="res://scenes/UI/PickupPopup.tscn" id="17_pickup_popup"]
 [ext_resource type="PackedScene" path="res://scenes/UI/StartMenu.tscn" id="18_start_menu"]
@@ -46,7 +46,7 @@ position = Vector2(-200, 250)
 [node name="Drone" parent="." unique_id=730775316 instance=ExtResource("2_drone")]
 position = Vector2(243, 255)
 
-[node name="Reaper" parent="." instance=ExtResource("19_reaper")]
+[node name="Reaper" parent="." unique_id=1117019134 instance=ExtResource("19_reaper")]
 position = Vector2(500, 255)
 
 [node name="HUD" parent="." unique_id=113973772 instance=ExtResource("4_hud")]
