@@ -97,15 +97,15 @@ func _physics_process(delta: float) -> void:
 	if melee_cooldown_timer <= 0.0 and Input.is_action_just_pressed("melee_attack"):
 		var weapon_stats: WeaponStats = equipped_weapon.get_aggregated_stats() if equipped_weapon != null else WeaponStats.new()
 		_do_melee_attack(weapon_stats)
-		melee_cooldown_timer = player_data.melee_cooldown / (1.0 + weapon_stats.attack_speed_bonus)
+		melee_cooldown_timer = player_data.melee_cooldown / (1.0 + weapon_stats.attack_speed_bonus + player_data.attack_speed_bonus)
 
 	if ranged_cooldown_timer <= 0.0 and Input.is_action_just_pressed("ranged_attack"):
 		_do_ranged_attack()
-		ranged_cooldown_timer = player_data.projectile_cooldown
+		ranged_cooldown_timer = player_data.projectile_cooldown / (1.0 + player_data.attack_speed_bonus)
 
 func _do_melee_attack(weapon_stats: WeaponStats) -> void:
 	var damage: int = player_data.melee_damage + weapon_stats.damage
-	if randf() < weapon_stats.crit_chance:
+	if randf() < weapon_stats.crit_chance + player_data.crit_chance:
 		damage *= 2
 
 	for body in attack_area.get_overlapping_bodies():
@@ -121,10 +121,14 @@ func _do_melee_attack(weapon_stats: WeaponStats) -> void:
 	melee_visual.play("slash")
 
 func _do_ranged_attack() -> void:
+	var damage: int = player_data.projectile_damage
+	if randf() < player_data.crit_chance:
+		damage *= 2
+
 	var projectile: Projectile = preload("res://scenes/Projectile.tscn").instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position + Vector2(20.0 * facing, -6.0)
-	projectile.launch(Vector2(facing, 0.0), player_data.projectile_damage, player_data.projectile_speed, player_data.projectile_range, "enemies")
+	projectile.launch(Vector2(facing, 0.0), damage, player_data.projectile_speed, player_data.projectile_range, "enemies")
 
 func apply_stat_boost(stat_type: PlayerData.StatType, amount: float) -> void:
 	player_data.apply_stat_boost(stat_type, amount)
