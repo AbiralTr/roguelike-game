@@ -21,6 +21,10 @@ theme_override_constants/separation = 12
 horizontal_alignment = 1
 text = "You Died"
 
+[node name="StatsLabel" type="Label" parent="Center/Options"]
+horizontal_alignment = 1
+text = "Score: 0   Nanites: 0   Time: 00:00"
+
 [node name="RestartButton" type="Button" parent="Center/Options"]
 custom_minimum_size = Vector2(160, 50)
 text = "Restart"
