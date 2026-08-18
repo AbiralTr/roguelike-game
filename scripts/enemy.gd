@@ -10,12 +10,15 @@ var attack_cooldown_timer: float = 0.0
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var contact_area: Area2D = get_node_or_null("ContactArea")
+@onready var melee_visual: AnimatedSprite2D = get_node_or_null("MeleeVisual")
 
 func _ready() -> void:
 	add_to_group("enemies")
 	current_health = enemy_data.max_health
 	if contact_area:
 		contact_area.body_entered.connect(_on_contact_body_entered)
+	if melee_visual:
+		melee_visual.animation_finished.connect(func() -> void: melee_visual.visible = false)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -59,6 +62,8 @@ func _update_attack(player: Node2D, delta: float) -> void:
 
 	if enemy_data.attack_type == EnemyData.AttackType.RANGED:
 		_fire(player)
+	else:
+		_melee_attack(player)
 
 	attack_cooldown_timer = enemy_data.attack_cooldown
 
@@ -69,6 +74,16 @@ func _fire(player: Node2D) -> void:
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = spawn_pos
 	projectile.launch(Vector2(facing_sign, 0.0), enemy_data.attack_damage, enemy_data.projectile_speed, enemy_data.projectile_range, "player")
+
+func _melee_attack(player: Node2D) -> void:
+	if player.has_method("take_damage"):
+		player.take_damage(enemy_data.attack_damage, global_position)
+	if melee_visual:
+		var facing_sign := signf(player.global_position.x - global_position.x)
+		melee_visual.position.x = enemy_data.attack_range * facing_sign
+		melee_visual.flip_h = facing_sign < 0.0
+		melee_visual.visible = true
+		melee_visual.play("slash")
 
 func _on_contact_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and body.has_method("take_damage"):

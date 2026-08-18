@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" path="res://scenes/UI/DeathScreen.tscn" id="16_death_screen"]
 [ext_resource type="PackedScene" path="res://scenes/UI/PickupPopup.tscn" id="17_pickup_popup"]
 [ext_resource type="PackedScene" path="res://scenes/UI/StartMenu.tscn" id="18_start_menu"]
+[ext_resource type="PackedScene" path="res://scenes/Reaper.tscn" id="19_reaper"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
@@ -41,6 +42,9 @@ position = Vector2(-200, 250)
 
 [node name="Drone" parent="." unique_id=730775316 instance=ExtResource("2_drone")]
 position = Vector2(243, 255)
+
+[node name="Reaper" parent="." instance=ExtResource("19_reaper")]
+position = Vector2(500, 255)
 
 [node name="HUD" parent="." unique_id=113973772 instance=ExtResource("4_hud")]
 
