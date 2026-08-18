@@ -37,9 +37,7 @@ func _roll_options() -> void:
 	option_c.text = _describe(current_options[2])
 
 func _describe(data: StatPickupData) -> String:
-	var stat_name: String = PlayerData.StatType.keys()[data.stat_type]
-	var amount_text: String = str(int(data.amount)) if data.amount == floor(data.amount) else ("%.1f" % data.amount)
-	return "+%s %s" % [amount_text, stat_name]
+	return PickupPopup.format_boost(data.stat_type, data.amount)
 
 func _choose(index: int) -> void:
 	var chosen: StatPickupData = current_options[index]

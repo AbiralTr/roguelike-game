@@ -7,6 +7,8 @@ var player: Player = null
 @onready var health_label: Label = $Panel/StatsArea/StatsBox/HealthLabel
 @onready var damage_label: Label = $Panel/StatsArea/StatsBox/DamageLabel
 @onready var speed_label: Label = $Panel/StatsArea/StatsBox/SpeedLabel
+@onready var crit_label: Label = $Panel/StatsArea/StatsBox/CritLabel
+@onready var attack_speed_label: Label = $Panel/StatsArea/StatsBox/AttackSpeedLabel
 @onready var weapon_label: Label = $Panel/InvArea/WeaponLabel
 @onready var currency_label: Label = $Panel/TerminalArea/TerminalBox/CurrencyLabel
 @onready var score_label: Label = $Panel/TerminalArea/TerminalBox/ScoreLabel
@@ -33,6 +35,8 @@ func _process(_delta: float) -> void:
 	health_label.text = "Health: %s / %s" % [int(pd.current_health), int(pd.max_health)]
 	damage_label.text = "Melee Damage: %s\nProjectile Damage: %s" % [pd.melee_damage, pd.projectile_damage]
 	speed_label.text = "Speed: %.1f" % pd.move_speed
+	crit_label.text = "Crit Chance: %d%%" % int(round(pd.crit_chance * 100.0))
+	attack_speed_label.text = "Attack Speed: +%d%%" % int(round(pd.attack_speed_bonus * 100.0))
 	weapon_label.text = "Weapon: %s" % (player.equipped_weapon.weapon_name if player.equipped_weapon != null else "None")
 
 	currency_label.text = "Nanites: %d" % GameState.run_currency

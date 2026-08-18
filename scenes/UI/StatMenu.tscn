@@ -81,6 +81,18 @@ theme_override_font_sizes/font_size = 18
 text = "Speed: 0.0"
 autowrap_mode = 2
 
+[node name="CritLabel" type="Label" parent="Panel/StatsArea/StatsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Crit Chance: 0%"
+autowrap_mode = 2
+
+[node name="AttackSpeedLabel" type="Label" parent="Panel/StatsArea/StatsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Attack Speed: +0%"
+autowrap_mode = 2
+
 [node name="TerminalArea" type="Control" parent="Panel" unique_id=763971659]
 anchors_preset = 0
 anchor_left = 0.58

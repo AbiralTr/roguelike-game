@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" path="res://scenes/UI/PickupPopup.tscn" id="17_pickup_popup"]
 [ext_resource type="PackedScene" path="res://scenes/UI/StartMenu.tscn" id="18_start_menu"]
 [ext_resource type="PackedScene" path="res://scenes/Reaper.tscn" id="19_reaper"]
+[ext_resource type="Resource" path="res://resources/crit_chance_pickup_data.tres" id="20_crit_data"]
+[ext_resource type="Resource" path="res://resources/attack_speed_pickup_data.tres" id="21_attack_speed_data"]
+[ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
@@ -65,7 +68,7 @@ position = Vector2(-329, 276)
 weapon_data = ExtResource("11_iron_sword")
 
 [node name="ChoiceMenu" parent="." unique_id=120659971 instance=ExtResource("12_choice_menu")]
-pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource("7_damage_data"), ExtResource("8_speed_data")])
+pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource("7_damage_data"), ExtResource("8_speed_data"), ExtResource("20_crit_data"), ExtResource("21_attack_speed_data"), ExtResource("22_dash_cooldown_data")])
 
 [node name="ChoicePickup" parent="." unique_id=668355269 instance=ExtResource("13_choice_pickup")]
 position = Vector2(-477, 158)

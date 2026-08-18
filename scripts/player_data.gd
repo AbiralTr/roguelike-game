@@ -1,7 +1,9 @@
 extends Resource
 class_name PlayerData
 
-enum StatType { HEALTH, DAMAGE, SPEED }
+const MIN_DASH_COOLDOWN: float = 0.2
+
+enum StatType { HEALTH, DAMAGE, SPEED, CRIT_CHANCE, ATTACK_SPEED, DASH_COOLDOWN }
 
 @export var base_max_health: float = 100.0
 @export var base_move_speed: float = 250.0
@@ -16,12 +18,16 @@ enum StatType { HEALTH, DAMAGE, SPEED }
 @export var projectile_speed: float = 500.0
 @export var projectile_range: float = 350.0
 @export var projectile_cooldown: float = 0.5
+@export var base_crit_chance: float = 0.0
+@export var base_attack_speed_bonus: float = 0.0
 
 var max_health: float
 var current_health: float
 var move_speed: float
 var melee_damage: int
 var projectile_damage: int
+var crit_chance: float
+var attack_speed_bonus: float
 
 func initialize() -> void:
 	max_health = base_max_health
@@ -29,6 +35,8 @@ func initialize() -> void:
 	move_speed = base_move_speed
 	melee_damage = base_melee_damage
 	projectile_damage = base_projectile_damage
+	crit_chance = base_crit_chance
+	attack_speed_bonus = base_attack_speed_bonus
 
 func take_damage(amount: float) -> void:
 	current_health = max(0.0, current_health - amount)
@@ -49,3 +57,9 @@ func apply_stat_boost(stat_type: StatType, amount: float) -> void:
 			projectile_damage += int(amount)
 		StatType.SPEED:
 			move_speed += amount
+		StatType.CRIT_CHANCE:
+			crit_chance += amount
+		StatType.ATTACK_SPEED:
+			attack_speed_bonus += amount
+		StatType.DASH_COOLDOWN:
+			dash_cooldown = max(MIN_DASH_COOLDOWN, dash_cooldown - amount)

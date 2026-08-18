@@ -13,6 +13,12 @@ func _ready() -> void:
 			texture = preload("res://assets/sprites/pickups/attack-up.png")
 		PlayerData.StatType.SPEED:
 			texture = preload("res://assets/sprites/pickups/speed-up.png")
+		PlayerData.StatType.CRIT_CHANCE:
+			texture = Placeholder.make_texture(Color(0.9, 0.2, 0.2))
+		PlayerData.StatType.ATTACK_SPEED:
+			texture = Placeholder.make_texture(Color(0.9, 0.8, 0.2))
+		PlayerData.StatType.DASH_COOLDOWN:
+			texture = Placeholder.make_texture(Color(0.2, 0.9, 0.9))
 	$Sprite2D.texture = texture
 
 func _on_body_entered(body: Node2D) -> void:
