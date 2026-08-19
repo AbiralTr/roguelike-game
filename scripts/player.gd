@@ -11,6 +11,10 @@ const KNOCKBACK_FORCE: float = 400.0
 const KNOCKBACK_DURATION: float = 0.15
 const NO_SOURCE: Vector2 = Vector2(INF, INF)
 
+const HIT_FLASH_DURATION: float = 0.15
+const SHAKE_STRENGTH: float = 6.0
+const SHAKE_DURATION: float = 0.2
+
 @export var player_data: PlayerData
 @export var equipped_weapon: WeaponData
 
@@ -27,11 +31,14 @@ var knockback_timer: float = 0.0
 var knockback_velocity_x: float = 0.0
 var invincible_timer: float = 0.0
 var is_dead: bool = false
+var shake_timer: float = 0.0
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var sprite_material: ShaderMaterial = sprite.material as ShaderMaterial
 @onready var melee_visual: AnimatedSprite2D = $MeleeVisual
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/AttackShape
+@onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
 	add_to_group("player")
@@ -89,6 +96,13 @@ func _physics_process(delta: float) -> void:
 		sprite.modulate.a = 1.0
 		collision_mask = GROUND_MASK | ENEMY_MASK_BIT
 
+	if shake_timer > 0.0:
+		shake_timer -= delta
+		var falloff: float = shake_timer / SHAKE_DURATION
+		camera.offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * SHAKE_STRENGTH * falloff
+	elif camera.offset != Vector2.ZERO:
+		camera.offset = Vector2.ZERO
+
 	if melee_cooldown_timer > 0.0:
 		melee_cooldown_timer -= delta
 	if ranged_cooldown_timer > 0.0:
@@ -145,6 +159,14 @@ func apply_knockback(direction: float, force: float, duration: float) -> void:
 	knockback_velocity_x = direction * force
 	knockback_timer = duration
 
+func _flash_white() -> void:
+	if sprite_material == null:
+		return
+	sprite_material.set_shader_parameter("flash_amount", 1.0)
+	var tween := create_tween()
+	tween.set_ignore_time_scale(true)
+	tween.tween_method(func(v: float) -> void: sprite_material.set_shader_parameter("flash_amount", v), 1.0, 0.0, HIT_FLASH_DURATION)
+
 func take_damage(amount: float, source_position: Vector2 = NO_SOURCE) -> void:
 	if is_dead or invincible_timer > 0.0:
 		return
@@ -155,6 +177,14 @@ func take_damage(amount: float, source_position: Vector2 = NO_SOURCE) -> void:
 		if dir == 0.0:
 			dir = -facing
 		apply_knockback(dir, KNOCKBACK_FORCE, KNOCKBACK_DURATION)
+
+	GameState.hit_stop()
+	_flash_white()
+	shake_timer = SHAKE_DURATION
+	var overlay := get_tree().get_first_node_in_group("damage_overlay") as DamageOverlay
+	if overlay != null:
+		overlay.trigger()
+
 	if player_data.is_dead():
 		_die()
 
