@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/damage_overlay.gd" id="1_overlay"]
+[ext_resource type="ShaderMaterial" path="res://resources/materials/chromatic_aberration_material.tres" id="2_material"]
+
+[node name="DamageOverlay" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_overlay")
+
+[node name="Rect" type="ColorRect" parent="."]
+material = ExtResource("2_material")
+mouse_filter = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1, 1)

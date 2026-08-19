@@ -23,6 +23,7 @@
 [ext_resource type="Resource" path="res://resources/crit_chance_pickup_data.tres" id="20_crit_data"]
 [ext_resource type="Resource" path="res://resources/attack_speed_pickup_data.tres" id="21_attack_speed_data"]
 [ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
+[ext_resource type="PackedScene" path="res://scenes/UI/DamageOverlay.tscn" id="23_damage_overlay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
@@ -82,3 +83,5 @@ position = Vector2(-477, 158)
 [node name="PickupPopup" parent="." unique_id=977193801 instance=ExtResource("17_pickup_popup")]
 
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
+
+[node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
