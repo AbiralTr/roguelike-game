@@ -107,25 +107,18 @@ pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource
 position = Vector2(-26, 129)
 
 [node name="PauseMenu" parent="." unique_id=1490618882 instance=ExtResource("14_pause_menu")]
-visible = false
 
 [node name="StatMenu" parent="." unique_id=1065451093 instance=ExtResource("15_stat_menu")]
-visible = false
 
 [node name="DeathScreen" parent="." unique_id=1317161401 instance=ExtResource("16_death_screen")]
-visible = false
 
 [node name="PickupPopup" parent="." unique_id=977193801 instance=ExtResource("17_pickup_popup")]
-visible = false
 
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
-visible = false
 
 [node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
-visible = false
 
 [node name="ChestMenu" parent="." unique_id=664477866 instance=ExtResource("26_chest_menu")]
-visible = false
 
 [node name="TestChest" parent="." unique_id=416408493 instance=ExtResource("25_chest")]
 position = Vector2(-200, 296)
