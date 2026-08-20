@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
 [ext_resource type="Resource" path="res://resources/player_data.tres" id="2_data"]
 [ext_resource type="SpriteFrames" path="res://resources/sprite_frames/player_sprite_frames.tres" id="3_frames"]
 [ext_resource type="SpriteFrames" path="res://resources/sprite_frames/player_slash_frames.tres" id="4_slash_frames"]
+[ext_resource type="ShaderMaterial" path="res://resources/materials/hit_flash_material.tres" id="5_hit_flash"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(28, 44)
@@ -21,6 +22,7 @@ player_data = ExtResource("2_data")
 shape = SubResource("RectangleShape2D_body")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("5_hit_flash")
 sprite_frames = ExtResource("3_frames")
 animation = &"idle"
 autoplay = "idle"

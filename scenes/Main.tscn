@@ -23,6 +23,7 @@
 [ext_resource type="Resource" path="res://resources/crit_chance_pickup_data.tres" id="20_crit_data"]
 [ext_resource type="Resource" path="res://resources/attack_speed_pickup_data.tres" id="21_attack_speed_data"]
 [ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
+[ext_resource type="PackedScene" path="res://scenes/UI/DamageOverlay.tscn" id="23_damage_overlay"]
 [ext_resource type="Texture2D" uid="uid://dqkt5nbay8j67" path="res://assets/sprites/world/rooms/testbg.png" id="24_2ofn6"]
 [ext_resource type="Script" uid="uid://bs5ai837rv6f6" path="res://scripts/platforms.gd" id="24_xa025"]
 
@@ -105,6 +106,8 @@ position = Vector2(-26, 129)
 
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
 
+[node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
+
 [node name="RoomTile" type="StaticBody2D" parent="." unique_id=404869701]
 collision_mask = 0
 script = ExtResource("24_xa025")
@@ -116,23 +119,23 @@ texture = ExtResource("24_2ofn6")
 
 [node name="Platform1" type="CollisionShape2D" parent="RoomTile" unique_id=463445163]
 position = Vector2(-464, 220)
-scale = Vector2(1.0894889, -0.51268107)
+scale = Vector2(1.0894889, 0.51268107)
 shape = SubResource("RectangleShape2D_2ofn6")
 
 [node name="Platform2" type="CollisionShape2D" parent="RoomTile" unique_id=584525386]
 position = Vector2(-352, 188)
-scale = Vector2(1.0894889, -0.51268107)
+scale = Vector2(1.0894889, 0.51268107)
 shape = SubResource("RectangleShape2D_13ins")
 
 [node name="Platform3" type="CollisionShape2D" parent="RoomTile" unique_id=898901192]
 position = Vector2(-239, 172.00002)
-scale = Vector2(1.0894889, -0.51268107)
+scale = Vector2(1.0894889, 0.51268107)
 shape = SubResource("RectangleShape2D_13ins")
 
 [node name="Platform4" type="CollisionShape2D" parent="RoomTile" unique_id=999149405]
 position = Vector2(-103, 154.5)
 rotation = -3.1415925
-scale = Vector2(5.193, -0.20000243)
+scale = Vector2(5.193, 0.20000243)
 shape = SubResource("RectangleShape2D_qawii")
 
 [node name="WallLeft" type="CollisionShape2D" parent="RoomTile" unique_id=1287868015]

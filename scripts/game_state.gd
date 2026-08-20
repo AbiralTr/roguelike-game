@@ -71,6 +71,16 @@ func request_close_choice_menu() -> bool:
 	Engine.time_scale = 1.0
 	return true
 
+func hit_stop(duration: float = 0.06, scale: float = 0.02) -> void:
+	if current != State.PLAYING:
+		return
+	Engine.time_scale = scale
+	get_tree().create_timer(duration, true, false, true).timeout.connect(_end_hit_stop)
+
+func _end_hit_stop() -> void:
+	if current == State.PLAYING:
+		Engine.time_scale = 1.0
+
 func die() -> void:
 	current = State.DEAD
 	Engine.time_scale = 0.0
