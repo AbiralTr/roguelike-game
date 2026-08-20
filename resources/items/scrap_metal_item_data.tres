@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bmkj74p2k2acp"]
+
+[ext_resource type="Script" uid="uid://cbk476bia51lu" path="res://scripts/items/item_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bl2k77w0025xw" path="res://assets/sprites/items/scrap.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Scrap Metal"
+description = "A chunk of salvaged metal. Could be useful for crafting."
+icon = ExtResource("2")
+max_stack = 20
