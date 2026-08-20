@@ -24,6 +24,7 @@
 [ext_resource type="Resource" path="res://resources/attack_speed_pickup_data.tres" id="21_attack_speed_data"]
 [ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
 [ext_resource type="Texture2D" uid="uid://dqkt5nbay8j67" path="res://assets/sprites/world/rooms/testbg.png" id="24_2ofn6"]
+[ext_resource type="Script" uid="uid://bs5ai837rv6f6" path="res://scripts/platforms.gd" id="24_xa025"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
@@ -54,6 +55,10 @@ script = ExtResource("3_ground")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1283587541]
 shape = SubResource("RectangleShape2D_ground")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=398932332]
+position = Vector2(-1432, -99)
+shape = SubResource("RectangleShape2D_ground")
+
 [node name="GroundSprite" type="Sprite2D" parent="Ground" unique_id=1471104617]
 visible = false
 
@@ -67,7 +72,6 @@ position = Vector2(243, 255)
 position = Vector2(500, 255)
 
 [node name="HUD" parent="." unique_id=113973772 instance=ExtResource("4_hud")]
-visible = false
 
 [node name="HealthPickup" parent="." unique_id=22513785 instance=ExtResource("5_pickup")]
 position = Vector2(-147, 128)
@@ -92,21 +96,18 @@ pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource
 position = Vector2(-26, 129)
 
 [node name="PauseMenu" parent="." unique_id=1490618882 instance=ExtResource("14_pause_menu")]
-visible = false
 
 [node name="StatMenu" parent="." unique_id=1065451093 instance=ExtResource("15_stat_menu")]
-visible = false
 
 [node name="DeathScreen" parent="." unique_id=1317161401 instance=ExtResource("16_death_screen")]
-visible = false
 
 [node name="PickupPopup" parent="." unique_id=977193801 instance=ExtResource("17_pickup_popup")]
-visible = false
 
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
-visible = false
 
 [node name="RoomTile" type="StaticBody2D" parent="." unique_id=404869701]
+collision_mask = 0
+script = ExtResource("24_xa025")
 
 [node name="RoomSprite" type="Sprite2D" parent="RoomTile" unique_id=1551832289]
 z_index = -1
