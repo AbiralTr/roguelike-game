@@ -20,7 +20,9 @@ enum StatType { HEALTH, DAMAGE, SPEED, CRIT_CHANCE, ATTACK_SPEED, DASH_COOLDOWN 
 @export var projectile_cooldown: float = 0.5
 @export var base_crit_chance: float = 0.0
 @export var base_attack_speed_bonus: float = 0.0
+@export var inventory_capacity: int = 12
 
+var inventory: Inventory
 var max_health: float
 var current_health: float
 var move_speed: float
@@ -37,6 +39,8 @@ func initialize() -> void:
 	projectile_damage = base_projectile_damage
 	crit_chance = base_crit_chance
 	attack_speed_bonus = base_attack_speed_bonus
+	inventory = Inventory.new()
+	inventory.capacity = inventory_capacity
 
 func take_damage(amount: float) -> void:
 	current_health = max(0.0, current_health - amount)

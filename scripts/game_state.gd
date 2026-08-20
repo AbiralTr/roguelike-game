@@ -1,6 +1,6 @@
 extends Node
 
-enum State { MAIN_MENU, PLAYING, PAUSED, STAT_MENU, CHOICE_MENU, DEAD }
+enum State { MAIN_MENU, PLAYING, PAUSED, STAT_MENU, CHOICE_MENU, CHEST_MENU, DEAD }
 
 var current: State = State.MAIN_MENU
 
@@ -52,6 +52,20 @@ func request_open_stat_menu() -> bool:
 
 func request_close_stat_menu() -> bool:
 	if current != State.STAT_MENU:
+		return false
+	current = State.PLAYING
+	Engine.time_scale = 1.0
+	return true
+
+func request_open_chest_menu() -> bool:
+	if current != State.PLAYING:
+		return false
+	current = State.CHEST_MENU
+	Engine.time_scale = 0.0
+	return true
+
+func request_close_chest_menu() -> bool:
+	if current != State.CHEST_MENU:
 		return false
 	current = State.PLAYING
 	Engine.time_scale = 1.0

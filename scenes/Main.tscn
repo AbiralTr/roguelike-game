@@ -26,9 +26,18 @@
 [ext_resource type="PackedScene" path="res://scenes/UI/DamageOverlay.tscn" id="23_damage_overlay"]
 [ext_resource type="Texture2D" uid="uid://dqkt5nbay8j67" path="res://assets/sprites/world/rooms/testbg.png" id="24_2ofn6"]
 [ext_resource type="Script" uid="uid://bs5ai837rv6f6" path="res://scripts/platforms.gd" id="24_xa025"]
+[ext_resource type="PackedScene" uid="uid://dmgvci2kpdshr" path="res://scenes/Chest.tscn" id="25_chest"]
+[ext_resource type="PackedScene" path="res://scenes/UI/ChestMenu.tscn" id="26_chest_menu"]
+[ext_resource type="Script" uid="uid://cqbtnyvr61xin" path="res://scripts/items/item_stack.gd" id="27_item_stack"]
+[ext_resource type="Resource" uid="uid://bmkj74p2k2acp" path="res://resources/items/scrap_metal_item_data.tres" id="28_scrap_metal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
+
+[sub_resource type="Resource" id="Resource_chest_stack"]
+script = ExtResource("27_item_stack")
+item = ExtResource("28_scrap_metal")
+quantity = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ofn6"]
 size = Vector2(42, 56)
@@ -64,6 +73,7 @@ shape = SubResource("RectangleShape2D_ground")
 visible = false
 
 [node name="Player" parent="." unique_id=679961120 instance=ExtResource("1_player")]
+z_index = 2
 position = Vector2(-313, 278)
 
 [node name="Drone" parent="." unique_id=730775316 instance=ExtResource("2_drone")]
@@ -107,6 +117,13 @@ position = Vector2(-26, 129)
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
 
 [node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
+
+[node name="ChestMenu" parent="." unique_id=664477866 instance=ExtResource("26_chest_menu")]
+
+[node name="TestChest" parent="." unique_id=416408493 instance=ExtResource("25_chest")]
+position = Vector2(-200, 296)
+capacity = 16
+starting_items = Array[ExtResource("27_item_stack")]([SubResource("Resource_chest_stack")])
 
 [node name="RoomTile" type="StaticBody2D" parent="." unique_id=404869701]
 collision_mask = 0
