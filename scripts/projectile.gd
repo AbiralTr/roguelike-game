@@ -36,3 +36,5 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 	elif body.is_in_group("ground"):
 		queue_free()
+	elif body.is_in_group("platforms"):
+		queue_free()

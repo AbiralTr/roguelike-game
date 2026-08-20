@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const GRAVITY: float = 980.0
+const GRAVITY: float = 870.0
 const ATTACK_RADIUS_RATIO: float = 0.6
 const GROUND_MASK: int = 1
 const ENEMY_MASK_BIT: int = 4

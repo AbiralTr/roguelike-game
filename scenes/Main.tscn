@@ -24,9 +24,26 @@
 [ext_resource type="Resource" path="res://resources/attack_speed_pickup_data.tres" id="21_attack_speed_data"]
 [ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
 [ext_resource type="PackedScene" path="res://scenes/UI/DamageOverlay.tscn" id="23_damage_overlay"]
+[ext_resource type="Texture2D" uid="uid://dqkt5nbay8j67" path="res://assets/sprites/world/rooms/testbg.png" id="24_2ofn6"]
+[ext_resource type="Script" uid="uid://bs5ai837rv6f6" path="res://scripts/platforms.gd" id="24_xa025"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ofn6"]
+size = Vector2(42, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ins"]
+size = Vector2(42, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qawii"]
+size = Vector2(42, 124.99844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fctbl"]
+size = Vector2(12, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_506if"]
+size = Vector2(639, 24)
 
 [node name="Main" type="Node2D" unique_id=1185577810]
 script = ExtResource("9_main")
@@ -39,10 +56,15 @@ script = ExtResource("3_ground")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1283587541]
 shape = SubResource("RectangleShape2D_ground")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=398932332]
+position = Vector2(-1432, -99)
+shape = SubResource("RectangleShape2D_ground")
+
 [node name="GroundSprite" type="Sprite2D" parent="Ground" unique_id=1471104617]
+visible = false
 
 [node name="Player" parent="." unique_id=679961120 instance=ExtResource("1_player")]
-position = Vector2(-200, 250)
+position = Vector2(-313, 278)
 
 [node name="Drone" parent="." unique_id=730775316 instance=ExtResource("2_drone")]
 position = Vector2(243, 255)
@@ -53,26 +75,26 @@ position = Vector2(500, 255)
 [node name="HUD" parent="." unique_id=113973772 instance=ExtResource("4_hud")]
 
 [node name="HealthPickup" parent="." unique_id=22513785 instance=ExtResource("5_pickup")]
-position = Vector2(-265, 157)
+position = Vector2(-147, 128)
 data = ExtResource("6_health_data")
 
 [node name="DamagePickup" parent="." unique_id=449267393 instance=ExtResource("5_pickup")]
-position = Vector2(-332, 157)
+position = Vector2(-88, 129)
 data = ExtResource("7_damage_data")
 
 [node name="SpeedPickup" parent="." unique_id=1247181636 instance=ExtResource("5_pickup")]
-position = Vector2(-408, 157)
+position = Vector2(-350, 164)
 data = ExtResource("8_speed_data")
 
 [node name="IronSwordPickup" parent="." unique_id=1116106958 instance=ExtResource("10_weapon_pickup")]
-position = Vector2(-329, 276)
+position = Vector2(-236, 144)
 weapon_data = ExtResource("11_iron_sword")
 
 [node name="ChoiceMenu" parent="." unique_id=120659971 instance=ExtResource("12_choice_menu")]
 pool = Array[ExtResource("13_nfivy")]([ExtResource("6_health_data"), ExtResource("7_damage_data"), ExtResource("8_speed_data"), ExtResource("20_crit_data"), ExtResource("21_attack_speed_data"), ExtResource("22_dash_cooldown_data")])
 
 [node name="ChoicePickup" parent="." unique_id=668355269 instance=ExtResource("13_choice_pickup")]
-position = Vector2(-477, 158)
+position = Vector2(-26, 129)
 
 [node name="PauseMenu" parent="." unique_id=1490618882 instance=ExtResource("14_pause_menu")]
 
@@ -85,3 +107,45 @@ position = Vector2(-477, 158)
 [node name="StartMenu" parent="." unique_id=644488763 instance=ExtResource("18_start_menu")]
 
 [node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
+
+[node name="RoomTile" type="StaticBody2D" parent="." unique_id=404869701]
+collision_mask = 0
+script = ExtResource("24_xa025")
+
+[node name="RoomSprite" type="Sprite2D" parent="RoomTile" unique_id=1551832289]
+z_index = -1
+position = Vector2(-200, 196)
+texture = ExtResource("24_2ofn6")
+
+[node name="Platform1" type="CollisionShape2D" parent="RoomTile" unique_id=463445163]
+position = Vector2(-464, 220)
+scale = Vector2(1.0894889, 0.51268107)
+shape = SubResource("RectangleShape2D_2ofn6")
+
+[node name="Platform2" type="CollisionShape2D" parent="RoomTile" unique_id=584525386]
+position = Vector2(-352, 188)
+scale = Vector2(1.0894889, 0.51268107)
+shape = SubResource("RectangleShape2D_13ins")
+
+[node name="Platform3" type="CollisionShape2D" parent="RoomTile" unique_id=898901192]
+position = Vector2(-239, 172.00002)
+scale = Vector2(1.0894889, 0.51268107)
+shape = SubResource("RectangleShape2D_13ins")
+
+[node name="Platform4" type="CollisionShape2D" parent="RoomTile" unique_id=999149405]
+position = Vector2(-103, 154.5)
+rotation = -3.1415925
+scale = Vector2(5.193, 0.20000243)
+shape = SubResource("RectangleShape2D_qawii")
+
+[node name="WallLeft" type="CollisionShape2D" parent="RoomTile" unique_id=1287868015]
+position = Vector2(-514, 277)
+shape = SubResource("RectangleShape2D_fctbl")
+
+[node name="WallRight" type="CollisionShape2D" parent="RoomTile" unique_id=334949034]
+position = Vector2(114, 277)
+shape = SubResource("RectangleShape2D_fctbl")
+
+[node name="Ceiling" type="CollisionShape2D" parent="RoomTile" unique_id=389724885]
+position = Vector2(-200.5, 48)
+shape = SubResource("RectangleShape2D_506if")
