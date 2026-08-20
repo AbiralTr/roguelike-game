@@ -32,8 +32,16 @@ func close() -> void:
 func _refresh() -> void:
 	if chest == null or player == null:
 		return
-	InventoryListView.populate(chest_list, chest.inventory, _on_transfer.bind(chest.inventory, player.player_data.inventory))
-	InventoryListView.populate(player_list, player.player_data.inventory, _on_transfer.bind(player.player_data.inventory, chest.inventory))
+	var chest_inv: Inventory = chest.inventory
+	var player_inv: Inventory = player.player_data.inventory
+
+	var chest_to_player := func(stack: ItemStack, button: Button) -> void:
+		_on_transfer(chest_inv, player_inv, stack, button)
+	var player_to_chest := func(stack: ItemStack, button: Button) -> void:
+		_on_transfer(player_inv, chest_inv, stack, button)
+
+	InventoryListView.populate(chest_list, chest_inv, chest_to_player)
+	InventoryListView.populate(player_list, player_inv, player_to_chest)
 
 func _on_transfer(source: Inventory, target: Inventory, stack: ItemStack, button: Button) -> void:
 	if source.transfer_to(target, stack.item, 1):
