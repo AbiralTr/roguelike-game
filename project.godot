@@ -18,6 +18,13 @@ config/features=PackedStringArray("4.7")
 
 GameState="*res://scripts/game_state.gd"
 
+[display]
+
+window/size/mode=2
+window/size/window_width_override=2304
+window/size/window_height_override=1296
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={

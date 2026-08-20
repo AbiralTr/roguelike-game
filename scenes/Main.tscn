@@ -25,6 +25,7 @@
 [ext_resource type="Resource" path="res://resources/dash_cooldown_pickup_data.tres" id="22_dash_cooldown_data"]
 [ext_resource type="Texture2D" uid="uid://dqkt5nbay8j67" path="res://assets/sprites/world/rooms/testbg.png" id="24_2ofn6"]
 [ext_resource type="Script" uid="uid://bs5ai837rv6f6" path="res://scripts/platforms.gd" id="24_xa025"]
+[ext_resource type="PackedScene" path="res://scenes/UI/DamageOverlay.tscn" id="23_damage_overlay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 100)
@@ -146,3 +147,4 @@ shape = SubResource("RectangleShape2D_fctbl")
 [node name="Ceiling" type="CollisionShape2D" parent="RoomTile" unique_id=389724885]
 position = Vector2(-200.5, 48)
 shape = SubResource("RectangleShape2D_506if")
+[node name="DamageOverlay" parent="." unique_id=838130559 instance=ExtResource("23_damage_overlay")]
